@@ -1,6 +1,7 @@
-Created by : Brian THELLIER
+Project created by Fabrice ROGER, Stéphaine PANTIEZ and Brian THELLIER !
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 
 ## Available Scripts
 
