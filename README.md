@@ -1,8 +1,7 @@
-create by Fabrice ROGER
+Project created by Fabrice ROGER, Stéphaine PANTIEZ and Brian THELLIER !
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Create by : Stephaine  
 
 ## Available Scripts
 
