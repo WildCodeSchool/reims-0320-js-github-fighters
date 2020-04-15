@@ -1,4 +1,5 @@
 import React from 'react';
+import FighterInput from './FighterInput';
 
 class SearchFighter extends React.Component {
   constructor(props) {
@@ -9,7 +10,10 @@ class SearchFighter extends React.Component {
 
   render() {
     return (
-      <div />
+      <>
+        <FighterInput />
+        
+      </>
     );
   }
 }
