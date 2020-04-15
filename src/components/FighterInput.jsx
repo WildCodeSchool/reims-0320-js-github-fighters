@@ -14,7 +14,7 @@ class FighterInput extends Component {
   render() {
     return (
       <div>
-         <label htmlFor="fighter">Fighter :</label>
+        <label htmlFor="fighter">Fighter :</label>
         <input
           id="fighter"
           type="text"
