@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class MyFighterInput extends Component {
+class FighterInput extends Component {
   constructor(props) {
     super(props);
     this.state = { fighter: '' };
@@ -27,4 +27,4 @@ class MyFighterInput extends Component {
   }
 }
 
-export default MyFighterInput;
+export default FighterInput;
