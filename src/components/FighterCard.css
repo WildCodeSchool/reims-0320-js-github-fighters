@@ -1,0 +1,94 @@
+.FighterCard {
+    display: flex;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    margin: 2em;
+    width: 43.75em;
+  }
+  
+  .FighterContainerImage {
+    display: flex;
+    margin: 2em 1em 2em 2em;
+  }
+  
+  .FighterImage img {
+    width: 12.5em;
+    border-radius: 3px;
+  }
+  
+  .FighterContainerContent {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    margin: 2em;
+  }
+  
+  .FighterContainerName {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1em 0 1em 2em;
+  }
+  
+  .FighterName {
+    display: flex;
+    color: #24292e;
+    font-weight: 600;
+    line-height: 1.875em;
+    font-size: 1.625em;
+  }
+  
+  .FighterLogin {
+    display: flex;
+    color: #666;
+    font-weight: regular;
+    font-size: 1.25em;
+  }
+  
+  .FighterBio {
+    display: flex;
+    color: #24292e;
+    font-weight: regular;
+    line-height: 1.3125em;
+    font-size: 0.875em;
+    margin: 0 2em 0 2em;
+  }
+  
+  .FighterList {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 0 0 2em;
+  }
+  
+  .FighterUnorderedList {
+    display: flex;
+    padding: 0;
+  }
+  
+  .FighterUnorderedList li {
+    display: flex;
+    margin: 0 2em 0 0;
+  }
+  
+  .FighterCompany {
+    color: #24292e;
+    font-weight: bold;
+    line-height: 1.3125em;
+    font-size: 0.875em;
+  }
+  
+  .FighterLocation {
+    color: #24292e;
+    font-weight: regular;
+    line-height: 1.3125em;
+    font-size: 0.875em;
+  }
+  
+  .FighterBlog {
+    color: #0366d6;
+    font-weight: regular;
+    line-height: 1.3125em;
+    font-size: 0.875em;
+  }
+  
