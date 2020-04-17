@@ -1,7 +1,20 @@
 import React from 'react';
 
-const FighterCard = () => (
-    <p>Hello world</p>
-);
+function FighterCard({ infos }) {
+  return (
+    <div className="FighterCard">
+      <div className="FighterContainerImage" />
 
-export default FighterCard
+      <div className="FighterContainerContent" />
+
+      <div className="FighterBio" />
+
+      <div className="FighterList" />
+
+
+    </div>
+
+
+  );
+}
+export default FighterCard;
