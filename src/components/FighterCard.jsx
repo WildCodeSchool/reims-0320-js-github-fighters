@@ -1,4 +1,5 @@
 import React from 'react';
+import './FighterCard.css';
 
 function FighterCard({ infos }) {
   return (
