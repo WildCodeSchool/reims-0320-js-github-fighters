@@ -1,23 +1,17 @@
 import React from 'react';
-import FighterInput from './FighterInput';
 
 import SearchButton from './SearchButton';
+import FighterInput from './FighterInput';
 
-class SearchFighter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return (
-      <>
-        <FighterInput />
-        <SearchButton />
-      </>
-    );
-  }
-}
-
-export default SearchFighter;
+const SearchFighter = ({
+  setKeywords,
+  onSearch,
+}) => (
+  <>
+    <FighterInput setText={setKeywords} />
+    <SearchButton onClick={onSearch}>
+      Recherche
+    </SearchButton>
+  </>
+);
+export default SearchFighter
