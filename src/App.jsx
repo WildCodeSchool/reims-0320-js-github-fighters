@@ -4,15 +4,16 @@ import './App.css';
 import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      keywords: null,
-      infos: [],
-    };
-    this.search = this.search.bind(this);
-  }
+import FighterCard from './components/FighterCard';
+
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <SearchFighter />
+        <FighterCard />
+      </header>
+    </div>
 
   setKeywords = (keywords) => this.setState({ keywords });
 
