@@ -23,7 +23,7 @@ function FighterCard({ infos }) {
             <li className="FighterCompany">{infos.company}</li>
             <li className="FighterLocation">{infos.location}</li>
             <li className="FighterBlog">
-              <a href="#">{infos.blog}</a>
+              <a href=" ">{infos.blog}</a>
             </li>
           </ul>
         </div>

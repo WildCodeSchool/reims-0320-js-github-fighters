@@ -1,0 +1,16 @@
+.SeachFighter{
+    display: flex;
+    align-items: flex-end ;
+}
+
+button {
+    background-color: white;
+    height: 100%;
+    border: 1px solid #D1D5DA;
+    border-radius: 3px;
+}
+
+input{
+    border:1px solid #D1D5DA;
+    border-radius: 3px;
+}
