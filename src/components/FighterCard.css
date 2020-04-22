@@ -33,7 +33,7 @@
 
 .FighterName {
   display: flex;
-  color:  white;
+  color:  black;
   font-weight: 600;
   line-height: 1.875em;
   font-size: 1.625em;
@@ -41,14 +41,14 @@
 
 .FighterLogin {
   display: flex;
-  color: white;
+  color:black;
   font-weight: regular;
   font-size: 1.25em;
 }
 
 .FighterBio {
   display: flex;
-  color:white;
+  color:black;
   font-weight: regular;
   line-height: 1.3125em;
   font-size: 0.875em;
@@ -72,14 +72,14 @@
 }
 
 .FighterCompany {
-  color: white;
+  color: black;
   font-weight: bold;
   line-height: 1.3125em;
   font-size: 0.875em;
 }
 
 .FighterLocation {
-  color:  white;
+  color:  black;
   font-weight: regular;
   line-height: 1.3125em;
   font-size: 0.875em;
