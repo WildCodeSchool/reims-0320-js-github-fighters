@@ -14,4 +14,4 @@ const SearchFighter = ({
     </SearchButton>
   </>
 );
-export default SearchFighter
+export default SearchFighter;
