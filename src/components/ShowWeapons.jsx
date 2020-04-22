@@ -7,6 +7,7 @@ class ShowWeapons extends React.Component {
             selectCommit: false,
             selectBranch: false,
             selectRepository: false,
+            selectFollowers: false,
         };
     }
 
@@ -93,6 +94,33 @@ class ShowWeapons extends React.Component {
                         </svg>
 
                         <div className="IconLabel">Repository</div>
+                    </div>
+                    <div
+                        className={
+                            this.state.selectFollowers
+                                ? "FollowersIconSelected"
+                                : "FollowersIcon"
+                        }
+                        onClick={event => {
+                            const newSelected = !this.state.selectFollowers;
+                            this.setState({ selectFollowers: newSelected });
+                        }}
+                    >
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 40 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle cx="20" cy="20" r="20" fill="#FDD33D" />
+                            <path
+                                d="M15.3 20.4375C17.3311 20.4375 18.975 18.774 18.975 16.7188C18.975 14.6635 17.3311 13 15.3 13C13.2689 13 11.625 14.6635 11.625 16.7188C11.625 18.774 13.2689 20.4375 15.3 20.4375ZM17.82 21.5H17.5477C16.8652 21.832 16.1072 22.0312 15.3 22.0312C14.4928 22.0312 13.7381 21.832 13.0523 21.5H12.78C10.6931 21.5 9 23.2133 9 25.325V26.2812C9 27.1611 9.70547 27.875 10.575 27.875H20.025C20.8945 27.875 21.6 27.1611 21.6 26.2812V25.325C21.6 23.2133 19.9069 21.5 17.82 21.5ZM24.75 20.4375C26.4891 20.4375 27.9 19.0098 27.9 17.25C27.9 15.4902 26.4891 14.0625 24.75 14.0625C23.0109 14.0625 21.6 15.4902 21.6 17.25C21.6 19.0098 23.0109 20.4375 24.75 20.4375ZM26.325 21.5H26.2003C25.7442 21.6594 25.2619 21.7656 24.75 21.7656C24.2381 21.7656 23.7558 21.6594 23.2997 21.5H23.175C22.5056 21.5 21.8887 21.6959 21.3473 22.0113C22.148 22.8846 22.65 24.0434 22.65 25.325V26.6C22.65 26.673 22.6336 26.7428 22.6303 26.8125H28.425C29.2945 26.8125 30 26.0986 30 25.2188C30 23.1635 28.3561 21.5 26.325 21.5Z"
+                                fill="black"
+                            />
+                        </svg>
+
+                        <div className="IconLabel">Followers</div>
                     </div>
 
                 </div>
