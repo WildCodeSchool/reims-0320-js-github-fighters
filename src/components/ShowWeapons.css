@@ -1,0 +1,126 @@
+.WeaponsContainer {
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    margin: 2em;
+  }
+  
+  .IconLabel {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0.5em;
+  }
+  
+  .WeaponsContainerTitle {
+    margin: 1em 1em 1.5em 1em;
+    text-align: start;
+  }
+  
+  .WeaponsContainerIcons {
+    display: flex;
+    margin: 0 1em 1em 1em;
+  }
+  
+  .CommitIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .CommitIcon:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .CommitIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .BranchIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .BranchIcon:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .BranchIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .RepositoryIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .RepositoryIcon:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .RepositoryIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .FollowersIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .FollowersIcon:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+  
+  .FollowersIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
