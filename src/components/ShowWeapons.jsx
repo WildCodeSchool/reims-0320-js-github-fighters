@@ -1,4 +1,5 @@
 import React from "react";
+import "./ShowWeapons.css";
 
 class ShowWeapons extends React.Component {
     constructor(props) {
