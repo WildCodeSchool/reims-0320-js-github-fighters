@@ -4,6 +4,8 @@ import './App.css';
 import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
 
+import ShowWeapons from "./components/ShowWeapons";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +39,7 @@ class App extends React.Component {
           />
 
           <FighterCard infos={this.state.infos} />
+          <ShowWeapons />
         </header>
       </div>
     );
