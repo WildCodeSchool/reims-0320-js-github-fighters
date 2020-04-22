@@ -8,4 +8,5 @@ const SearchButton = ({
     {children}
   </button>
 );
+
 export default SearchButton;

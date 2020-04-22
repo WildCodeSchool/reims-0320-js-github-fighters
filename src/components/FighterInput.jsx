@@ -5,4 +5,5 @@ const FighterInput = ({
 }) => (
   <input onChange={(event) => setText(event.target.value)} type="text" />
 );
+
 export default FighterInput;
