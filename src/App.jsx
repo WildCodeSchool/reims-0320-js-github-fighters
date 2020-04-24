@@ -4,7 +4,7 @@ import './App.css';
 import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
 
-import ShowWeapons from "./components/ShowWeapons";
+import ShowWeapons from './components/ShowWeapons';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +29,11 @@ class App extends React.Component {
       });
   };
 
+  getRepository=() => this.state.infos.public_repos;
+
+  getFollower=() => this.state.infos.followers;
+
+
   render() {
     return (
       <div className="App">
@@ -37,9 +42,8 @@ class App extends React.Component {
             setKeywords={this.setKeywords}
             onSearch={this.search}
           />
-
           <FighterCard infos={this.state.infos} />
-          <ShowWeapons />
+          <ShowWeapons getRepository={this.getRepository} getFollower={this.getFollower} />
         </header>
       </div>
     );
