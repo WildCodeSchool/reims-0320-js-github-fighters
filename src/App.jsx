@@ -11,7 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       keywords: null,
-      infos: [],
+      infos: null
     };
     this.search = this.search.bind(this);
   }
@@ -42,8 +42,15 @@ class App extends React.Component {
             setKeywords={this.setKeywords}
             onSearch={this.search}
           />
-          <FighterCard infos={this.state.infos} />
-          <ShowWeapons getRepository={this.getRepository} getFollowers={this.getFollowers} />
+          {this.state.infos && (
+            <>
+              <FighterCard infos={this.state.infos} />
+              <ShowWeapons
+                getRepository={this.getRepository}
+                getFollowers={this.getFollowers}
+              />
+            </>
+          )}
         </header>
       </div>
     );
