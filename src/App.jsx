@@ -58,19 +58,22 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <SearchFighter
-            setKeywords={this.setKeywords}
-            onSearch={this.search}
-          />
-          {this.state.infos && (
-            <>
-              <FighterCard infos={this.state.infos} />
-              <ShowWeapons
-                getRepository={this.getRepository}
-                getFollowers={this.getFollowers}
-              />
-            </>
-          )}
+          <div className="first-fighter">
+            <SearchFighter
+              setKeywords={this.setKeywordsFighter}
+              onSearch={this.searchFighter}
+            />
+
+            {this.state.infosFighter && (
+              <>
+                <FighterCard infos={this.state.infosFighter} />
+                <ShowWeapons
+                  getRepository={this.getRepositoryFighter}
+                  getFollowers={this.getFollowersFighter}
+                />
+              </>
+            )}
+          </div>
         </header>
       </div>
     );
