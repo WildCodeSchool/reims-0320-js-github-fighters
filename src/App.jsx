@@ -10,8 +10,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keywords: null,
-      infos: null
+      keywordsFighter: null,
+      infosFighter: null,
+      keywordsChallenger: null,
+      infosChallenger: null
     };
     this.search = this.search.bind(this);
   }
