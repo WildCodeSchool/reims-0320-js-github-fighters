@@ -60,6 +60,7 @@ class App extends React.Component {
         <header className="App-header">
           <div className="first-fighter">
             <SearchFighter
+              label={'Fighter :'}
               setKeywords={this.setKeywordsFighter}
               onSearch={this.searchFighter}
             />
@@ -76,6 +77,7 @@ class App extends React.Component {
           </div>
           <div className="second-fighter">
             <SearchFighter
+              label={'Challenger :'}
               setKeywords={this.setKeywordsChallenger}
               onSearch={this.searchChallenger}
             />
