@@ -15,7 +15,8 @@ class App extends React.Component {
       keywordsChallenger: null,
       infosChallenger: null
     };
-    this.search = this.search.bind(this);
+    this.searchFighter = this.searchFighter.bind(this);
+    this.searchChallenger = this.searchChallenger.bind(this);
   }
 
   setKeywordsFighter = keywordsFighter => this.setState({ keywordsFighter });
