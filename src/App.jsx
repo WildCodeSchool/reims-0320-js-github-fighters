@@ -5,6 +5,7 @@ import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
 
 import ShowWeapons from './components/ShowWeapons';
+import HomePage from './components/HomePage';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,35 +14,34 @@ class App extends React.Component {
       keywordsFighter: null,
       infosFighter: null,
       keywordsChallenger: null,
-      infosChallenger: null
+      infosChallenger: null,
     };
     this.searchFighter = this.searchFighter.bind(this);
     this.searchChallenger = this.searchChallenger.bind(this);
   }
 
-  setKeywordsFighter = keywordsFighter => this.setState({ keywordsFighter });
+  setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
 
   searchFighter = () => {
     Axios.get(`https://api.github.com/users/${this.state.keywordsFighter}`)
-      .then(response => response.data)
+      .then((response) => response.data)
       // Use this data to update the state
-      .then(data => {
+      .then((data) => {
         this.setState({
-          infosFighter: data
+          infosFighter: data,
         });
       });
   };
 
-  setKeywordsChallenger = keywordsChallenger =>
-    this.setState({ keywordsChallenger });
+  setKeywordsChallenger = (keywordsChallenger) => this.setState({ keywordsChallenger });
 
   searchChallenger = () => {
     Axios.get(`https://api.github.com/users/${this.state.keywordsChallenger}`)
-      .then(response => response.data)
+      .then((response) => response.data)
       // Use this data to update the state
-      .then(data => {
+      .then((data) => {
         this.setState({
-          infosChallenger: data
+          infosChallenger: data,
         });
       });
   };
@@ -58,7 +58,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+
           <div className="first-fighter">
+            <HomePage />
             <SearchFighter
               setKeywords={this.setKeywordsFighter}
               onSearch={this.searchFighter}
