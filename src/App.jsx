@@ -46,10 +46,13 @@ class App extends React.Component {
       });
   };
 
-  getRepository=() => this.state.infos.public_repos;
+  getRepositoryFighter = () => this.state.infosFighter.public_repos;
 
-  getFollowers=() => this.state.infos.followers;
+  getFollowersFighter = () => this.state.infosFighter.followers;
 
+  getRepositoryChallenger = () => this.state.infosChallenger.public_repos;
+
+  getFollowersChallenger = () => this.state.infosChallenger.followers;
 
   render() {
     return (
