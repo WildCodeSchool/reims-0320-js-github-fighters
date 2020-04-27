@@ -11,48 +11,88 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      keywords: null,
-      infos: null
+      keywordsFighter: null,
+      infosFighter: null,
+      keywordsChallenger: null,
+      infosChallenger: null
     };
-    this.search = this.search.bind(this);
+    this.searchFighter = this.searchFighter.bind(this);
+    this.searchChallenger = this.searchChallenger.bind(this);
   }
 
-  setKeywords = (keywords) => this.setState({ keywords });
+  setKeywordsFighter = keywordsFighter => this.setState({ keywordsFighter });
 
-  search = () => {
-    Axios.get(`https://api.github.com/users/${this.state.keywords}`)
-      .then((response) => response.data)
+  searchFighter = () => {
+    Axios.get(`https://api.github.com/users/${this.state.keywordsFighter}`)
+      .then(response => response.data)
       // Use this data to update the state
-      .then((data) => {
+      .then(data => {
         this.setState({
-          infos: data,
+          infosFighter: data
         });
       });
   };
 
-  getRepository=() => this.state.infos.public_repos;
+  setKeywordsChallenger = keywordsChallenger =>
+    this.setState({ keywordsChallenger });
 
-  getFollowers=() => this.state.infos.followers;
+  searchChallenger = () => {
+    Axios.get(`https://api.github.com/users/${this.state.keywordsChallenger}`)
+      .then(response => response.data)
+      // Use this data to update the state
+      .then(data => {
+        this.setState({
+          infosChallenger: data
+        });
+      });
+  };
 
+  getRepositoryFighter = () => this.state.infosFighter.public_repos;
+
+  getFollowersFighter = () => this.state.infosFighter.followers;
+
+  getRepositoryChallenger = () => this.state.infosChallenger.public_repos;
+
+  getFollowersChallenger = () => this.state.infosChallenger.followers;
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <HomePage />
-          <SearchFighter
-            setKeywords={this.setKeywords}
-            onSearch={this.search}
-          />
-          {this.state.infos && (
-            <>
-              <FighterCard infos={this.state.infos} />
-              <ShowWeapons
-                getRepository={this.getRepository}
-                getFollowers={this.getFollowers}
-              />
-            </>
-          )}
+
+          <div className="first-fighter">
+              <HomePage />
+              <SearchFighter
+              setKeywords={this.setKeywordsFighter}
+              onSearch={this.searchFighter}
+            />
+
+            {this.state.infosFighter && (
+              <>
+                <FighterCard infos={this.state.infosFighter} />
+                <ShowWeapons
+                  getRepository={this.getRepositoryFighter}
+                  getFollowers={this.getFollowersFighter}
+                />
+              </>
+            )}
+          </div>
+          <div className="second-fighter">
+            <SearchFighter
+              setKeywords={this.setKeywordsChallenger}
+              onSearch={this.searchChallenger}
+            />
+
+            {this.state.infosChallenger && (
+              <>
+                <FighterCard infos={this.state.infosChallenger} />
+                <ShowWeapons
+                  getRepository={this.getRepositoryChallenger}
+                  getFollowers={this.getFollowersChallenger}
+                />
+              </>
+            )}
+          </div>
         </header>
       </div>
     );
