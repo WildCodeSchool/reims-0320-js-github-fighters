@@ -18,15 +18,29 @@ class App extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  setKeywords = (keywords) => this.setState({ keywords });
+  setKeywordsFighter = keywordsFighter => this.setState({ keywordsFighter });
 
-  search = () => {
-    Axios.get(`https://api.github.com/users/${this.state.keywords}`)
-      .then((response) => response.data)
+  searchFighter = () => {
+    Axios.get(`https://api.github.com/users/${this.state.keywordsFighter}`)
+      .then(response => response.data)
       // Use this data to update the state
-      .then((data) => {
+      .then(data => {
         this.setState({
-          infos: data,
+          infosFighter: data
+        });
+      });
+  };
+
+  setKeywordsChallenger = keywordsChallenger =>
+    this.setState({ keywordsChallenger });
+
+  searchChallenger = () => {
+    Axios.get(`https://api.github.com/users/${this.state.keywordsChallenger}`)
+      .then(response => response.data)
+      // Use this data to update the state
+      .then(data => {
+        this.setState({
+          infosChallenger: data
         });
       });
   };
