@@ -5,6 +5,7 @@ import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
 
 import ShowWeapons from './components/ShowWeapons';
+import HomePage from './components/HomePage';
 
 class App extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <HomePage />
           <SearchFighter
             setKeywords={this.setKeywords}
             onSearch={this.search}
