@@ -3,16 +3,17 @@
   border: 1px solid #d1d5da;
   border-radius: 3px;
   margin: 2em;
-  width: 43.75em;
+  width: 35em;
 }
 
 .FighterContainerImage {
   display: flex;
-  margin: 2em 1em 2em 2em;
+  margin: 1em;
+  align-items: center;
 }
 
 .FighterImage img {
-  width: 12.5em;
+  width: 10rem;
   border-radius: 3px;
 }
 
@@ -21,7 +22,7 @@
   flex-direction: column;
   border: 1px solid #d1d5da;
   border-radius: 3px;
-  margin: 2em;
+  margin: 1em;
 }
 
 .FighterContainerName {

@@ -1,6 +1,8 @@
 .SeachFighter{
     display: flex;
-    align-items: flex-end ;
+    align-items: center ;
+    margin-top: 1em;
+    margin-right: 15rem;
 }
 
 button {
@@ -8,9 +10,18 @@ button {
     height: 100%;
     border: 1px solid #D1D5DA;
     border-radius: 3px;
+    padding: 0.5rem;
+    font-weight: bold;
 }
 
 input{
+    display: flex;
     border:1px solid #D1D5DA;
     border-radius: 3px;
+    padding: 0.5rem;
+}
+
+label {
+    padding-right: 1rem;
+    font-weight: bold;
 }
