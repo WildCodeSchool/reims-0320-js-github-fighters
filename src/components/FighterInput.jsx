@@ -4,7 +4,6 @@ const FighterInput = ({
   setText,
 }) => (
   <div className="texteFight">
-    <>Fighter : </>
     <input onChange={(event) => setText(event.target.value)} type="text" />
   </div>
 );

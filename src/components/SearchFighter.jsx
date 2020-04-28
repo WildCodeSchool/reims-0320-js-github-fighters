@@ -7,8 +7,10 @@ import './SearchFighter.css';
 const SearchFighter = ({
   setKeywords,
   onSearch,
+  label
 }) => (
   <div className="SeachFighter">
+    <label>{label}</label>
     <FighterInput setText={setKeywords} />
     <SearchButton onClick={onSearch}>
       Recherche
