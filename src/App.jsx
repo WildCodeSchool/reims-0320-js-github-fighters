@@ -66,43 +66,54 @@ class App extends React.Component {
             }}
             />
           ) : (
-            <div className="Fighter">
-              <div className="first-fighter">
-                <SearchFighter
-                  label="Fighter :"
-                  setKeywords={this.setKeywordsFighter}
-                  onSearch={this.searchFighter}
-                />
-
-                {this.state.infosFighter && (
-                <>
-                  <FighterCard infos={this.state.infosFighter} />
-                  <ShowWeapons
-                    getRepository={this.getRepositoryFighter}
-                    getFollowers={this.getFollowersFighter}
+              <div className="Fighter">
+                <div className="first-fighter">
+                  <SearchFighter
+                    label="Fighter :"
+                    setKeywords={this.setKeywordsFighter}
+                    onSearch={this.searchFighter}
                   />
-                </>
-                )}
-              </div>
-              <div className="second-fighter">
-                <SearchFighter
-                  label="Challenger :"
-                  setKeywords={this.setKeywordsChallenger}
-                  onSearch={this.searchChallenger}
-                />
 
+                  {this.state.infosFighter && (
+                    <>
+                      <FighterCard infos={this.state.infosFighter} />
+                      <ShowWeapons
+                        getRepository={this.getRepositoryFighter}
+                        getFollowers={this.getFollowersFighter}
+                      />
+                    </>
+                  )}
+                </div>
                 {this.state.infosChallenger && (
-                <>
-                  <FighterCard infos={this.state.infosChallenger} />
-                  <ShowWeapons
-                    getRepository={this.getRepositoryChallenger}
-                    getFollowers={this.getFollowersChallenger}
-                  />
-                </>
+                  <>
+                    <div className="random-weapons">
+                      <span className="versus">{this.state.infosFighter.login} VS {this.state.infosChallenger.login}</span>
+                      <ShowWeapons
+                        getRepository={this.getRepositoryChallenger}
+                        getFollowers={this.getFollowersChallenger}
+                      />
+                    </div>
+                  </>
                 )}
+                <div className="second-fighter">
+                  <SearchFighter
+                    label="Challenger :"
+                    setKeywords={this.setKeywordsChallenger}
+                    onSearch={this.searchChallenger}
+                  />
+
+                  {this.state.infosChallenger && (
+                    <>
+                      <FighterCard infos={this.state.infosChallenger} />
+                      <ShowWeapons
+                        getRepository={this.getRepositoryChallenger}
+                        getFollowers={this.getFollowersChallenger}
+                      />
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            )}
         </header>
       </div>
     );
