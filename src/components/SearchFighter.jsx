@@ -10,7 +10,7 @@ const SearchFighter = ({
   label
 }) => (
   <div className="SeachFighter">
-    <>{label}</>
+    <label>{label}</label>
     <FighterInput setText={setKeywords} />
     <SearchButton onClick={onSearch}>
       Recherche
