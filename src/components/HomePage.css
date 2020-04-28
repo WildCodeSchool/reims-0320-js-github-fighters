@@ -1,3 +1,18 @@
-.tilte {
+
+.title {
     color: black;
+    font-size: 10em;
+   
+}
+
+.tagline{
+    font-size: 5vh;
+}
+
+.buttonstart{
+    padding:  3vh;
+    font-size: 3vh ;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 10%;
 }
