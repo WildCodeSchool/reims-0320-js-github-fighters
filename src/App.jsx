@@ -11,6 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      homebouton: true,
       keywordsFighter: null,
       infosFighter: null,
       keywordsChallenger: null,
@@ -58,42 +59,50 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-
-          <div className="first-fighter">
-            <HomePage />
-            <SearchFighter
-              label={'Fighter :'}
-              setKeywords={this.setKeywordsFighter}
-              onSearch={this.searchFighter}
+          {this.state.homebouton ? (
+            <HomePage start={() => {
+              // mise a jour du state en fonction de sa valeur presédente
+              this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
+            }}
             />
-
-            {this.state.infosFighter && (
-              <>
-                <FighterCard infos={this.state.infosFighter} />
-                <ShowWeapons
-                  getRepository={this.getRepositoryFighter}
-                  getFollowers={this.getFollowersFighter}
+          ) : (
+            <div className="Fighter">
+              <div className="first-fighter">
+                <SearchFighter
+                  label="Fighter :"
+                  setKeywords={this.setKeywordsFighter}
+                  onSearch={this.searchFighter}
                 />
-              </>
-            )}
-          </div>
-          <div className="second-fighter">
-            <SearchFighter
-              label={'Challenger :'}
-              setKeywords={this.setKeywordsChallenger}
-              onSearch={this.searchChallenger}
-            />
 
-            {this.state.infosChallenger && (
-              <>
-                <FighterCard infos={this.state.infosChallenger} />
-                <ShowWeapons
-                  getRepository={this.getRepositoryChallenger}
-                  getFollowers={this.getFollowersChallenger}
+                {this.state.infosFighter && (
+                <>
+                  <FighterCard infos={this.state.infosFighter} />
+                  <ShowWeapons
+                    getRepository={this.getRepositoryFighter}
+                    getFollowers={this.getFollowersFighter}
+                  />
+                </>
+                )}
+              </div>
+              <div className="second-fighter">
+                <SearchFighter
+                  label="Challenger :"
+                  setKeywords={this.setKeywordsChallenger}
+                  onSearch={this.searchChallenger}
                 />
-              </>
-            )}
-          </div>
+
+                {this.state.infosChallenger && (
+                <>
+                  <FighterCard infos={this.state.infosChallenger} />
+                  <ShowWeapons
+                    getRepository={this.getRepositoryChallenger}
+                    getFollowers={this.getFollowersChallenger}
+                  />
+                </>
+                )}
+              </div>
+            </div>
+          )}
         </header>
       </div>
     );
