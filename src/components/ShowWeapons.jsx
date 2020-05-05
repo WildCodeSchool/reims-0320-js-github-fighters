@@ -5,8 +5,8 @@ class ShowWeapons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectCommit: false,
-      selectBranch: false,
+      selectGists: false,
+      selectFollowing: false,
       selectRepository: false,
       selectFollowers: false,
     };
@@ -21,11 +21,11 @@ class ShowWeapons extends React.Component {
         <div className="WeaponsContainerIcons">
           <div
             className={
-                            this.state.selectCommit ? 'CommitIconSelected' : 'CommitIcon'
+                            this.state.selectGists ? 'GistsIconSelected' : 'GistsIcon'
                         }
             onClick={(event) => {
-              const newSelected = !this.state.selectCommit;
-              this.setState({ selectCommit: newSelected });
+              const newSelected = !this.state.selectGists;
+              this.setState({ selectGists: newSelected });
             }}
           >
             <svg
@@ -42,15 +42,15 @@ class ShowWeapons extends React.Component {
               />
             </svg>
 
-            <div className="IconLabel">Commit</div>
+            <div className="IconLabel">Gists</div>
           </div>
           <div
             className={
-                            this.state.selectBranch ? 'BranchIconSelected' : 'BranchIcon'
+                            this.state.selectFollowing ? 'FollowingIconSelected' : 'FollowingIcon'
                         }
             onClick={(event) => {
-              const newSelected = !this.state.selectBranch;
-              this.setState({ selectBranch: newSelected });
+              const newSelected = !this.state.selectFollowing;
+              this.setState({ selectFollowing: newSelected });
             }}
           >
             <svg
@@ -67,7 +67,7 @@ class ShowWeapons extends React.Component {
               />
             </svg>
 
-            <div className="IconLabel">Branch</div>
+            <div className="IconLabel">Following</div>
           </div>
           <div
             className={
@@ -136,6 +136,18 @@ class ShowWeapons extends React.Component {
             <p>
               Followers :
               {this.props.getFollowers()}
+            </p>
+            )}
+            {this.state.selectGists && (
+            <p>
+              Gists :
+              {this.props.getGists()}
+            </p>
+            )}
+            {this.state.selectFollowing && (
+            <p>
+              Following :
+              {this.props.getFollowing()}
             </p>
             )}
           </div>

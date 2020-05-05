@@ -53,9 +53,18 @@ class App extends React.Component {
 
   getFollowersFighter = () => this.state.infosFighter.followers;
 
+  getFollowingFigther = () => this.state.infosFighter.following;
+
+  getGistsFighter = () => this.state.infosFighter.public_gists;
+
   getRepositoryChallenger = () => this.state.infosChallenger.public_repos;
 
   getFollowersChallenger = () => this.state.infosChallenger.followers;
+
+  getFollowingChallenger = () => this.state.infosChallenger.following;
+
+  getGistsChallenger = () => this.state.infosChallenger.public_gists;
+
 
   render() {
     return (
@@ -97,6 +106,8 @@ class App extends React.Component {
                     <ShowWeapons
                       getRepository={this.getRepositoryFighter}
                       getFollowers={this.getFollowersFighter}
+                      getFollowing={this.getFollowingFigther}
+                      getGists={this.getGistsFighter}
                     />
                   </Animated>
                 </>
@@ -139,32 +150,34 @@ class App extends React.Component {
                 >
                   <SearchFighter
                     label="Challenger :"
-                    setKeywords={this.setKeywordsChallenger}
-                    onSearch={this.searchChallenger}
+                    getRepository={this.getRepositoryChallenger}
+                    getFollowers={this.getFollowersChallenger}
+                    getFollowing={this.getFollowingChallenger}
+                    getGists={this.getGistsChallenger}
                   />
                 </Animated>
 
-                {this.state.infosChallenger && (
-                <>
-                  <Animated
-                    animationIn="bounceInRight"
-                    animationOut="fadeOut"
-                    animationInDuration={1000}
-                    animationOutDuration={1000}
-                    isVisible
-                  >
-
-                    <FighterCard infos={this.state.infosChallenger} />
-                    <ShowWeapons
-                      getRepository={this.getRepositoryChallenger}
-                      getFollowers={this.getFollowersChallenger}
-                    />
-                  </Animated>
-                </>
-                )}
-              </div>
-            </div>
-          )}
+                  {this.state.infosFighter && (
+                    <>
+                      <Animated
+                        animationIn="bounceInLeft"
+                        animationOut="fadeOut"
+                        animationInDuration={1000}
+                        animationOutDuration={1000}
+                        isVisible={true}
+                      >
+                        <FighterCard infos={this.state.infosFighter} />
+                        <ShowWeapons
+                          getRepository={this.getRepositoryFighter}
+                          getFollowers={this.getFollowersFighter}
+                          getFollowing={this.getFollowingFigther}
+                          getGists={this.getGistsFighter}
+                        />
+                      </Animated>
+                    </>
+                  )}
+                </div>
+               )}
         </header>
       </div>
     );
