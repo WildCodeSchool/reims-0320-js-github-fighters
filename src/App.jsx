@@ -135,6 +135,10 @@ class App extends React.Component {
                       getFollowersF={this.getFollowersFighter}
                       getRepositoryC={this.getRepositoryChallenger}
                       getFollowersC={this.getFollowersChallenger}
+                      getGistsC={this.getGistsChallenger}
+                      getFollowingC={this.getFollowingChallenger}
+                      getFollowingF={this.getFollowingFigther}
+                      getGistsF={this.getGistsFighter}
                     />
                   </div>
                 </Animated>

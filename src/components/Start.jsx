@@ -5,10 +5,10 @@ class Start extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gists: 0,
-      repos: 0,
-      followers: 0,
-      following: 0,
+      gists: false,
+      repos: false,
+      followers: false,
+      following: false,
       number: null,
     };
   }
@@ -24,38 +24,46 @@ class Start extends React.Component {
           <div className="WeaponsContainerIcons">
             <div
               className={
-                            this.state.gists ? 'commitIconSelected' : 'commitIcon'
+                            this.state.gists ? 'GistsIconSelected' : 'GistsIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectGists;
+                this.setState({ selectGists: newSelected });
+              }}
             >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="#0366D6" />
                 <path fillRule="evenodd" clipRule="evenodd" d="M22.5 15.7692L26.6667 20L22.5 24.2308L21.25 22.9615L24.1667 20L21.25 17.0385L22.5 15.7692ZM17.5 15.7692L13.3333 20L17.5 24.2308L18.75 22.9615L15.8333 20L18.75 17.0385L17.5 15.7692ZM10 29.3077V10.6923C10 9.76154 10.75 9 11.6667 9H28.3333C29.25 9 30 9.76154 30 10.6923V29.3077C30 30.2385 29.25 31 28.3333 31H11.6667C10.75 31 10 30.2385 10 29.3077ZM11.6667 29.3077H28.3333V10.6923H11.6667V29.3077Z" fill="black" />
               </svg>
 
-
               <div className="IconLabel">Gists</div>
             </div>
             <div
               className={
-                            this.state.following
-                              ? 'branchIconSelected'
-                              : 'branchIcon'
+                            this.state.following ? 'FollowingIconSelected' : 'FollowingIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectFollowing;
+                this.setState({ selectFollowing: newSelected });
+              }}
             >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="#D73A49" />
                 <path fillRule="evenodd" clipRule="evenodd" d="M30 29.3604C30 29.7953 29.8248 30.2123 29.5128 30.5198C29.2009 30.8273 28.7778 31 28.3367 31H11.6683C11.4492 31.0002 11.2321 30.9578 11.0296 30.8753C10.8271 30.7927 10.6431 30.6716 10.4882 30.5188C10.3332 30.3661 10.2103 30.1847 10.1265 29.9851C10.0428 29.7855 9.99978 29.5715 10 29.3555V27.7143C10 23.3886 16.6667 21.1429 16.6667 21.1429C16.6667 21.1429 17.0483 20.4709 16.6667 19.5C15.265 18.4814 15.0933 16.8879 15 12.9286C15.2883 8.96436 18.1117 8 20 8C21.8883 8 24.7117 8.96271 25 12.9286C24.9067 16.8879 24.735 18.4814 23.3333 19.5C22.9517 20.4693 23.3333 21.1429 23.3333 21.1429C23.3333 21.1429 30 23.3886 30 27.7143V29.3604Z" fill="black" />
               </svg>
 
-
               <div className="IconLabel">Following</div>
             </div>
             <div
               className={
                             this.state.repos
-                              ? 'repositoryIconSelected'
-                              : 'repositoryIcon'
+                              ? 'RepositoryIconSelected'
+                              : 'RepositoryIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectRepository;
+                this.setState({ selectRepository: newSelected });
+              }}
             >
               <svg
                 width="40"
@@ -76,9 +84,13 @@ class Start extends React.Component {
             <div
               className={
                             this.state.followers
-                              ? 'followersIconSelected'
-                              : 'followersIcon'
+                              ? 'FollowersIconSelected'
+                              : 'FollowersIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectFollowers;
+                this.setState({ selectFollowers: newSelected });
+              }}
             >
               <svg
                 width="40"
@@ -102,7 +114,7 @@ class Start extends React.Component {
               {this.state.repos && (
               <>
                 <p>
-                  RepositoryF :
+                  RepositoryF:
                   {this.props.getRepositoryF()}
                 </p>
                 <p>
@@ -114,7 +126,7 @@ class Start extends React.Component {
               {this.state.followers && (
               <>
                 <p>
-                  Followersf :
+                  FollowersF :
                   {this.props.getFollowersF()}
                 </p>
                 <p>
@@ -122,6 +134,30 @@ class Start extends React.Component {
                   {this.props.getFollowersC()}
                 </p>
               </>
+              )}
+              {this.state.following && (
+                <>
+                  <p>
+                    FollowingF :
+                    {this.props.getFollowingF()}
+                  </p>
+                  <p>
+                    FollowingC :
+                    {this.props.getFollowingC()}
+                  </p>
+                </>
+              )}
+              {this.state.gists && (
+                <>
+                  <p>
+                    GistsF :
+                    {this.props.getGistsF()}
+                  </p>
+                  <p>
+                    GistsC :
+                    {this.props.getGistsC()}
+                  </p>
+                </>
               )}
             </div>
           </div>
@@ -133,25 +169,25 @@ class Start extends React.Component {
             );
 
             const newState = {
-              gists: 0,
-              repos: 0,
-              followers: 0,
-              following: 0,
+              gists: false,
+              repos: false,
+              followers: false,
+              following: false,
               number,
             };
 
             switch (number) {
               case 0:
-                newState.gists = 1;
+                newState.gists = true;
                 break;
               case 1:
-                newState.repos = 1;
+                newState.repos = true;
                 break;
               case 2:
-                newState.followers = 1;
+                newState.followers = true;
                 break;
               case 3:
-                newState.following = 1;
+                newState.following = true;
                 break;
               default:
             }
