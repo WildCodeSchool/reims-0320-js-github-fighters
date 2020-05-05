@@ -26,8 +26,13 @@ class ShowWeapons extends React.Component {
             onClick={(event) => {
               const newSelected = !this.state.selectGists;
               this.setState({ selectGists: newSelected });
-            }}
+              if ({ selectGists: true }) {
+                return (this.setState({ selectFollowing: false,
+                selectRepository: false,
+                selectFollowers: false })
+              )}}}
           >
+
             <svg
               width="40"
               height="40"
@@ -51,7 +56,11 @@ class ShowWeapons extends React.Component {
             onClick={(event) => {
               const newSelected = !this.state.selectFollowing;
               this.setState({ selectFollowing: newSelected });
-            }}
+              if ({ selectFollowing: true }) {
+                return (this.setState({ selectGists: false,
+                selectRepository: false,
+                selectFollowers: false })
+              )}}}
           >
             <svg
               width="40"
@@ -78,7 +87,11 @@ class ShowWeapons extends React.Component {
             onClick={(event) => {
               const newSelected = !this.state.selectRepository;
               this.setState({ selectRepository: newSelected });
-            }}
+                if ({ selectRepository: true }) {
+                  return (this.setState({ selectGists: false,
+                  selectFollowing: false,
+                  selectFollowers: false })
+                )}}}
           >
             <svg
               width="40"
@@ -105,7 +118,11 @@ class ShowWeapons extends React.Component {
             onClick={(event) => {
               const newSelected = !this.state.selectFollowers;
               this.setState({ selectFollowers: newSelected });
-            }}
+              if ({ selectFollowers: true }) {
+                return (this.setState({ selectGists: false,
+                selectRepository: false,
+                selectFollowing: false })
+              )}}}
           >
             <svg
               width="40"
