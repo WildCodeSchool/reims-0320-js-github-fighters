@@ -130,14 +130,13 @@ class App extends React.Component {
                       {' '}
                       {this.state.infosChallenger.login}
                     </span>
-                    <ShowWeapons
-                      getRepository={this.getRepositoryChallenger}
-                      getFollowers={this.getFollowersChallenger}
-                      getFollowing={this.getFollowingChallenger}
-                      getGists={this.getGistsChallenger}
+                    <Start
+                      getRepositoryF={this.getRepositoryFighter}
+                      getFollowersF={this.getFollowersFighter}
+                      getRepositoryC={this.getRepositoryChallenger}
+                      getFollowersC={this.getFollowersChallenger}
                     />
                   </div>
-                  <Start />
                 </Animated>
               </>
               )}
