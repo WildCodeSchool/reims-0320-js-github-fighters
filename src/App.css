@@ -3,24 +3,12 @@
 }
 
 .Fighter {
-  height: 1vh;
   display: flex;
-  justify-content: space-around;
-
-}
-
-.App-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
 }
 
 .versus {
   display: flex;
   justify-content: center;
   font-weight: bold;
-  padding-top: 2rem;
+  margin-top: 2rem;
 }
-

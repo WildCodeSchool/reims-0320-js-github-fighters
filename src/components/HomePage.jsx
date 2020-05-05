@@ -3,7 +3,7 @@ import './HomePage.css';
 
 const HomePage = ({ start }) => (
   <div className="homepage">
-    <h1 className="title">GitHub Fighter</h1>
+    <h1 className="title">GitHub Fighters</h1>
     <h2 className="tagline">" become the next GitHub Champion! "</h2>
     <button
       className="buttonstart"

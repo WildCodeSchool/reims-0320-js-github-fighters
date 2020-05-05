@@ -12,7 +12,7 @@
 }
 
 .FighterImage img {
-  width: 10rem;
+  max-width: 10rem;
   border-radius: 3px;
 }
 
