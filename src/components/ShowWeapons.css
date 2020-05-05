@@ -21,7 +21,7 @@
     justify-content: space-between;
   }
   
-  .CommitIcon {
+  .GistsIcon {
     padding: 0.5em;
     display: flex;
     flex-direction: column;
@@ -30,12 +30,12 @@
     margin: 0 1em 0 0;
   }
   
-  .CommitIcon:hover {
+  .GistsIcon:hover {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
   }
   
-  .CommitIconSelected {
+  .GistsIconSelected {
     background: rgba(0, 0, 0, 0.2);
     border: 2px solid black;
     border-radius: 3px;
@@ -47,7 +47,7 @@
     margin: 0 1em 0 0;
   }
   
-  .BranchIcon {
+  .FollowingIcon {
     padding: 0.5em;
     display: flex;
     flex-direction: column;
@@ -56,12 +56,12 @@
     margin: 0 1em 0 0;
   }
   
-  .BranchIcon:hover {
+  .FollowingIcon:hover {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
   }
   
-  .BranchIconSelected {
+  .FollowingIconSelected {
     background: rgba(0, 0, 0, 0.2);
     border: 2px solid black;
     border-radius: 3px;

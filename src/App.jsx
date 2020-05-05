@@ -52,9 +52,18 @@ class App extends React.Component {
 
   getFollowersFighter = () => this.state.infosFighter.followers;
 
+  getFollowingFigther = () => this.state.infosFighter.following;
+
+  getGistsFighter = () => this.state.infosFighter.public_gists;
+
   getRepositoryChallenger = () => this.state.infosChallenger.public_repos;
 
   getFollowersChallenger = () => this.state.infosChallenger.followers;
+
+  getFollowingChallenger = () => this.state.infosChallenger.following;
+
+  getGistsChallenger = () => this.state.infosChallenger.public_gists;
+
 
   render() {
     return (
@@ -96,6 +105,8 @@ class App extends React.Component {
                         <ShowWeapons
                           getRepository={this.getRepositoryFighter}
                           getFollowers={this.getFollowersFighter}
+                          getFollowing={this.getFollowingFigther}
+                          getGists={this.getGistsFighter}
                         />
                       </Animated>
                     </>
@@ -115,6 +126,8 @@ class App extends React.Component {
                         <ShowWeapons
                           getRepository={this.getRepositoryChallenger}
                           getFollowers={this.getFollowersChallenger}
+                          getFollowing={this.getFollowingChallenger}
+                          getGists={this.getGistsChallenger}
                         />
                       </div>
                     </Animated>
@@ -149,13 +162,15 @@ class App extends React.Component {
                         <ShowWeapons
                           getRepository={this.getRepositoryChallenger}
                           getFollowers={this.getFollowersChallenger}
+                          getFollowing={this.getFollowingChallenger}
+                          getGists={this.getGistsChallenger}
                         />
                       </Animated>
                     </>
                   )}
                 </div>
               </div>
-            )}
+          )}
         </header>
       </div>
     );
