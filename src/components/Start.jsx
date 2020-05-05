@@ -5,10 +5,10 @@ class Start extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gists: 0,
-      repos: 0,
-      followers: 0,
-      following: 0,
+      gists: false,
+      repos: false,
+      followers: false,
+      following: false,
       number: null,
     };
   }
@@ -24,8 +24,12 @@ class Start extends React.Component {
           <div className="WeaponsContainerIcons">
             <div
               className={
-                            this.state.gists ? 'commitIconSelected' : 'commitIcon'
+                            this.state.gists ? 'GistsIconSelected' : 'GistsIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectGists;
+                this.setState({ selectGists: newSelected });
+              }}
             >
               <svg
                 width="40"
@@ -41,14 +45,16 @@ class Start extends React.Component {
                 />
               </svg>
 
-              <div className="IconLabel">Commit</div>
+              <div className="IconLabel">Gists</div>
             </div>
             <div
               className={
-                            this.state.following
-                              ? 'branchIconSelected'
-                              : 'branchIcon'
+                            this.state.following ? 'FollowingIconSelected' : 'FollowingIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectFollowing;
+                this.setState({ selectFollowing: newSelected });
+              }}
             >
               <svg
                 width="40"
@@ -64,14 +70,18 @@ class Start extends React.Component {
                 />
               </svg>
 
-              <div className="IconLabel">Branch</div>
+              <div className="IconLabel">Following</div>
             </div>
             <div
               className={
                             this.state.repos
-                              ? 'repositoryIconSelected'
-                              : 'repositoryIcon'
+                              ? 'RepositoryIconSelected'
+                              : 'RepositoryIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectRepository;
+                this.setState({ selectRepository: newSelected });
+              }}
             >
               <svg
                 width="40"
@@ -92,9 +102,13 @@ class Start extends React.Component {
             <div
               className={
                             this.state.followers
-                              ? 'followersIconSelected'
-                              : 'followersIcon'
+                              ? 'FollowersIconSelected'
+                              : 'FollowersIcon'
                         }
+              onClick={(event) => {
+                const newSelected = !this.state.selectFollowers;
+                this.setState({ selectFollowers: newSelected });
+              }}
             >
               <svg
                 width="40"
@@ -118,7 +132,7 @@ class Start extends React.Component {
               {this.state.repos && (
               <>
                 <p>
-                  RepositoryF :
+                  RepositoryF:
                   {this.props.getRepositoryF()}
                 </p>
                 <p>
@@ -130,7 +144,7 @@ class Start extends React.Component {
               {this.state.followers && (
               <>
                 <p>
-                  Followersf :
+                  FollowersF :
                   {this.props.getFollowersF()}
                 </p>
                 <p>
@@ -138,6 +152,30 @@ class Start extends React.Component {
                   {this.props.getFollowersC()}
                 </p>
               </>
+              )}
+              {this.state.following && (
+                <>
+                  <p>
+                    FollowingF :
+                    {this.props.getFollowingF()}
+                  </p>
+                  <p>
+                    FollowingC :
+                    {this.props.getFollowingC()}
+                  </p>
+                </>
+              )}
+              {this.state.gists && (
+                <>
+                  <p>
+                    GistsF :
+                    {this.props.getGistsF()}
+                  </p>
+                  <p>
+                    GistsC :
+                    {this.props.getGistsC()}
+                  </p>
+                </>
               )}
             </div>
           </div>
@@ -149,25 +187,25 @@ class Start extends React.Component {
             );
 
             const newState = {
-              gists: 0,
-              repos: 0,
-              followers: 0,
-              following: 0,
+              gists: false,
+              repos: false,
+              followers: false,
+              following: false,
               number,
             };
 
             switch (number) {
               case 0:
-                newState.gists = 1;
+                newState.gists = true;
                 break;
               case 1:
-                newState.repos = 1;
+                newState.repos = true;
                 break;
               case 2:
-                newState.followers = 1;
+                newState.followers = true;
                 break;
               case 3:
-                newState.following = 1;
+                newState.following = true;
                 break;
               default:
             }
