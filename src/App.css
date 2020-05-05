@@ -3,19 +3,8 @@
 }
 
 .Fighter {
-  /*height: 1vh;*/
   display: flex;
-  /*justify-content: space-around;*/
 }
-
-/*
-.App-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-*/
 
 .versus {
   display: flex;
