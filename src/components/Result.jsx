@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+
 
 function Result({ choice }) {
   return (
@@ -6,7 +8,7 @@ function Result({ choice }) {
     <div>
       <p>
 
-        { choice.public_repos }
+        {choice.public_repos}
 
       </p>
     </div>
