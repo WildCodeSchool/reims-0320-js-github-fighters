@@ -4,6 +4,7 @@ import './App.css';
 import { Animated } from 'react-animated-css';
 import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
+import Start from './components/Start';
 
 import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
@@ -113,7 +114,7 @@ class App extends React.Component {
                 </>
                 )}
               </div>
-              {this.state.infosChallenger && (
+              {this.state.infosFighter && this.state.infosChallenger && (
               <>
                 <Animated
                   animationIn="bounceInDown"
@@ -130,11 +131,15 @@ class App extends React.Component {
                       {' '}
                       {this.state.infosChallenger.login}
                     </span>
-                    <ShowWeapons
-                      getRepository={this.getRepositoryChallenger}
-                      getFollowers={this.getFollowersChallenger}
-                      getFollowing={this.getFollowingChallenger}
-                      getGists={this.getGistsChallenger}
+                    <Start
+                      getRepositoryF={this.getRepositoryFighter}
+                      getFollowersF={this.getFollowersFighter}
+                      getRepositoryC={this.getRepositoryChallenger}
+                      getFollowersC={this.getFollowersChallenger}
+                      getGistsC={this.getGistsChallenger}
+                      getFollowingC={this.getFollowingChallenger}
+                      getFollowingF={this.getFollowingFigther}
+                      getGistsF={this.getGistsFighter}
                     />
                   </div>
                 </Animated>
@@ -169,8 +174,8 @@ class App extends React.Component {
                     <ShowWeapons
                       getRepository={this.getRepositoryChallenger}
                       getFollowers={this.getFollowersChallenger}
-                      getFollowing={this.getFollowingChallenger}
                       getGists={this.getGistsChallenger}
+                      getFollowing={this.getFollowingChallenger}
                     />
                   </Animated>
                 </>

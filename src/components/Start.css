@@ -1,0 +1,114 @@
+.WeaponsContainer {
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+    margin: 2em;
+  }
+  
+  .IconLabel {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0.5em;
+  }
+  
+  .WeaponsContainerTitle {
+    margin: 1em 1em 1.5em 1em;
+    text-align: start;
+  }
+  
+  .WeaponsContainerIcons {
+    display: flex;
+    margin: 0 1em 1em 1em;
+    justify-content: space-between;
+  }
+  
+  .commitIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  
+  
+  .commitIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .branchIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+ 
+  
+  .branchIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .repositoryIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  
+  
+  .repositoryIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  .followersIcon {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  
+  
+  .followersIconSelected {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1em 0 0;
+  }
+  

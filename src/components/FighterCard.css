@@ -3,7 +3,6 @@
   border: 1px solid #d1d5da;
   border-radius: 3px;
   margin: 2em;
-  width: 35em;
 }
 
 .FighterContainerImage {
@@ -13,7 +12,7 @@
 }
 
 .FighterImage img {
-  width: 10rem;
+  max-width: 10rem;
   border-radius: 3px;
 }
 
