@@ -22,6 +22,7 @@
   }
   
   .GistsIcon {
+    border: none;
     padding: 0.5em;
     display: flex;
     flex-direction: column;
@@ -48,6 +49,7 @@
   }
   
   .FollowingIcon {
+    border: none;
     padding: 0.5em;
     display: flex;
     flex-direction: column;
@@ -74,6 +76,7 @@
   }
   
   .RepositoryIcon {
+    border: none;
     padding: 0.5em;
     display: flex;
     flex-direction: column;
@@ -100,6 +103,7 @@
   }
   
   .FollowersIcon {
+    border: none;
     padding: 0.5em;
     display: flex;
     flex-direction: column;

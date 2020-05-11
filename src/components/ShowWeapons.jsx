@@ -19,13 +19,18 @@ class ShowWeapons extends React.Component {
           <em>Choose your weapons...</em>
         </div>
         <div className="WeaponsContainerIcons">
-          <div
+          <button
+            type="button"
             className={
-                            this.state.selectGists ? 'GistsIconSelected' : 'GistsIcon'
-                        }
-            onClick={(event) => {
-              const newSelected = !this.state.selectGists;
-              this.setState({ selectGists: newSelected });
+              this.state.selectGists ? 'GistsIconSelected' : 'GistsIcon'
+            }
+            onClick={() => {
+              this.setState({
+                selectGists: !this.state.selectGists,
+                selectFollowing: false,
+                selectRepository: false,
+                selectFollowers: false,
+              });
             }}
           >
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,14 +40,19 @@ class ShowWeapons extends React.Component {
 
 
             <div className="IconLabel">Gists</div>
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
             className={
-                            this.state.selectFollowing ? 'FollowingIconSelected' : 'FollowingIcon'
-                        }
-            onClick={(event) => {
-              const newSelected = !this.state.selectFollowing;
-              this.setState({ selectFollowing: newSelected });
+              this.state.selectFollowing ? 'FollowingIconSelected' : 'FollowingIcon'
+            }
+            onClick={() => {
+              this.setState({
+                selectFollowing: !this.state.selectFollowing,
+                selectGists: false,
+                selectRepository: false,
+                selectFollowers: false,
+              });
             }}
           >
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,16 +62,19 @@ class ShowWeapons extends React.Component {
 
 
             <div className="IconLabel">Following</div>
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
             className={
-                            this.state.selectRepository
-                              ? 'RepositoryIconSelected'
-                              : 'RepositoryIcon'
-                        }
-            onClick={(event) => {
-              const newSelected = !this.state.selectRepository;
-              this.setState({ selectRepository: newSelected });
+              this.state.selectRepository ? 'RepositoryIconSelected' : 'RepositoryIcon'
+            }
+            onClick={() => {
+              this.setState({
+                selectRepository: !this.state.selectRepository,
+                selectFollowing: false,
+                selectGists: false,
+                selectFollowers: false,
+              });
             }}
           >
             <svg
@@ -79,16 +92,19 @@ class ShowWeapons extends React.Component {
             </svg>
 
             <div className="IconLabel">Repository</div>
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
             className={
-                            this.state.selectFollowers
-                              ? 'FollowersIconSelected'
-                              : 'FollowersIcon'
-                        }
-            onClick={(event) => {
-              const newSelected = !this.state.selectFollowers;
-              this.setState({ selectFollowers: newSelected });
+              this.state.selectFollowers ? 'FollowersIconSelected' : 'FollowersIcon'
+            }
+            onClick={() => {
+              this.setState({
+                selectFollowers: !this.state.selectFollowers,
+                selectFollowing: false,
+                selectRepository: false,
+                selectGists: false,
+              });
             }}
           >
             <svg
@@ -106,35 +122,7 @@ class ShowWeapons extends React.Component {
             </svg>
 
             <div className="IconLabel">Followers</div>
-          </div>
-        </div>
-        <div>
-          <div>
-            {this.state.selectRepository && (
-            <p>
-              Repository :
-              {this.props.getRepository()}
-            </p>
-            )}
-            {this.state.selectFollowers && (
-            <p>
-              Followers :
-              {this.props.getFollowers()}
-            </p>
-            )}
-            {this.state.selectGists && (
-            <p>
-              Gists :
-              {this.props.getGists()}
-            </p>
-            )}
-            {this.state.selectFollowing && (
-            <p>
-              Following :
-              {this.props.getFollowing()}
-            </p>
-            )}
-          </div>
+          </button>
         </div>
       </div>
     );
