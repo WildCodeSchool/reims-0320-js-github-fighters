@@ -8,7 +8,7 @@ import Start from './components/Start';
 
 import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
-import Result from './components/Result';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -104,12 +104,7 @@ class App extends React.Component {
                     isVisible
                   >
                     <FighterCard infos={this.state.infosFighter} />
-                    <ShowWeapons
-                      getRepository={this.getRepositoryFighter}
-                      getFollowers={this.getFollowersFighter}
-                      getFollowing={this.getFollowingFigther}
-                      getGists={this.getGistsFighter}
-                    />
+                    <ShowWeapons />
                   </Animated>
                 </>
                 )}
@@ -131,16 +126,7 @@ class App extends React.Component {
                       {' '}
                       {this.state.infosChallenger.login}
                     </span>
-                    <Start
-                      getRepositoryF={this.getRepositoryFighter}
-                      getFollowersF={this.getFollowersFighter}
-                      getRepositoryC={this.getRepositoryChallenger}
-                      getFollowersC={this.getFollowersChallenger}
-                      getGistsC={this.getGistsChallenger}
-                      getFollowingC={this.getFollowingChallenger}
-                      getFollowingF={this.getFollowingFigther}
-                      getGistsF={this.getGistsFighter}
-                    />
+                    <Start />
                   </div>
                 </Animated>
               </>
@@ -171,22 +157,12 @@ class App extends React.Component {
                   >
 
                     <FighterCard infos={this.state.infosChallenger} />
-                    <ShowWeapons
-                      getRepository={this.getRepositoryChallenger}
-                      getFollowers={this.getFollowersChallenger}
-                      getGists={this.getGistsChallenger}
-                      getFollowing={this.getFollowingChallenger}
-                    />
+                    <ShowWeapons />
                   </Animated>
                 </>
                 )}
               </div>
-              <>
-                {this.state.infosFighter && (
-                <Result choice={this.state.infosFighter} />
-                )}
-              </>
-
+              
             </div>
           )}
         </header>

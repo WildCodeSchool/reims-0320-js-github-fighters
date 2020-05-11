@@ -109,58 +109,6 @@ class Start extends React.Component {
               <div className="iconLabel">Followers</div>
             </div>
           </div>
-          <div>
-            <div>
-              {this.state.repos && (
-              <>
-                <p>
-                  RepositoryF:
-                  {this.props.getRepositoryF()}
-                </p>
-                <p>
-                  RepositoryC :
-                  {this.props.getRepositoryC()}
-                </p>
-              </>
-              )}
-              {this.state.followers && (
-              <>
-                <p>
-                  FollowersF :
-                  {this.props.getFollowersF()}
-                </p>
-                <p>
-                  FollowersC :
-                  {this.props.getFollowersC()}
-                </p>
-              </>
-              )}
-              {this.state.following && (
-                <>
-                  <p>
-                    FollowingF :
-                    {this.props.getFollowingF()}
-                  </p>
-                  <p>
-                    FollowingC :
-                    {this.props.getFollowingC()}
-                  </p>
-                </>
-              )}
-              {this.state.gists && (
-                <>
-                  <p>
-                    GistsF :
-                    {this.props.getGistsF()}
-                  </p>
-                  <p>
-                    GistsC :
-                    {this.props.getGistsC()}
-                  </p>
-                </>
-              )}
-            </div>
-          </div>
         </div>
         <button
           onClick={() => {
