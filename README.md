@@ -2,7 +2,7 @@ Project created by Fabrice ROGER, Stéphaine PANTIEZ and Brian THELLIER !
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-
+netlify :https://projet-2-github-fighters.netlify.app/
 ## Available Scripts
 
 In the project directory, you can run:
