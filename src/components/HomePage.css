@@ -10,7 +10,7 @@
     min-height: 100%;
     background-size: cover;
   }
-  
+
 .title {
     color: black;
     font-size: 10em;
@@ -30,7 +30,6 @@
     width: 15%;
     text-align: center;
     margin-top: 2rem;
-
     position: relative;
     overflow: hidden;
     line-height: 100%;
