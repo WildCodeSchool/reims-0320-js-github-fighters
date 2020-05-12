@@ -1,0 +1,8 @@
+.intructionbuton{
+    padding:  3vh;
+    font-size: 3vh ;
+    font-weight: bold;
+    border: 3px solid black;
+    border-radius: 10%;
+    width: 15%;
+}
