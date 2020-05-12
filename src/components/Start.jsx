@@ -1,20 +1,12 @@
 import React from 'react';
 import './Start.css';
+import AppContext from '../context/AppContext';
 
 class Start extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      gists: false,
-      repos: false,
-      followers: false,
-      following: false,
-      number: null,
-    };
-  }
-
 
   render() {
+    const { state } = this.context;
+
     return (
       <>
         <div className="weaponsContainer">
@@ -24,12 +16,8 @@ class Start extends React.Component {
           <div className="weaponsContainerIcons">
             <div
               className={
-                            this.state.gists ? 'gistsIconSelected' : 'gistsIcon'
-                        }
-              onClick={(event) => {
-                const newSelected = !this.state.selectGists;
-                this.setState({ selectGists: newSelected });
-              }}
+                state.random.gists ? 'gistsIconSelected' : 'gistsIcon'
+              }
             >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="#0366D6" />
@@ -40,12 +28,8 @@ class Start extends React.Component {
             </div>
             <div
               className={
-                            this.state.following ? 'followingIconSelected' : 'followingIcon'
-                        }
-              onClick={(event) => {
-                const newSelected = !this.state.selectFollowing;
-                this.setState({ selectFollowing: newSelected });
-              }}
+                state.random.following ? 'followingIconSelected' : 'followingIcon'
+              }
             >
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="20" cy="20" r="20" fill="#D73A49" />
@@ -56,14 +40,8 @@ class Start extends React.Component {
             </div>
             <div
               className={
-                            this.state.repos
-                              ? 'repositoryIconSelected'
-                              : 'repositoryIcon'
-                        }
-              onClick={(event) => {
-                const newSelected = !this.state.selectRepository;
-                this.setState({ selectRepository: newSelected });
-              }}
+                state.random.repos ? 'repositoryIconSelected' : 'repositoryIcon'
+              }
             >
               <svg
                 width="40"
@@ -83,14 +61,8 @@ class Start extends React.Component {
             </div>
             <div
               className={
-                            this.state.followers
-                              ? 'followersIconSelected'
-                              : 'followersIcon'
-                        }
-              onClick={(event) => {
-                const newSelected = !this.state.selectFollowers;
-                this.setState({ selectFollowers: newSelected });
-              }}
+                state.random.followers ? 'followersIconSelected' : 'followersIcon'
+              }
             >
               <svg
                 width="40"
@@ -112,35 +84,7 @@ class Start extends React.Component {
         </div>
         <button
           onClick={() => {
-            const number = Math.floor(
-              Math.random() * 4,
-            );
-
-            const newState = {
-              gists: false,
-              repos: false,
-              followers: false,
-              following: false,
-              number,
-            };
-
-            switch (number) {
-              case 0:
-                newState.gists = true;
-                break;
-              case 1:
-                newState.repos = true;
-                break;
-              case 2:
-                newState.followers = true;
-                break;
-              case 3:
-                newState.following = true;
-                break;
-              default:
-            }
-
-            this.setState(newState);
+            this.props.onClick();
           }}
           type="button"
         >
@@ -151,5 +95,6 @@ class Start extends React.Component {
   }
 }
 
+Start.contextType = AppContext;
 
 export default Start;
