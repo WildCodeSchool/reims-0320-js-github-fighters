@@ -5,12 +5,6 @@ import InstructionPage from './InstructionPage';
 
 const HomePage = ({ start }) => (
 
-  <Animated
-    animationIn="slideInUp"
-    animationOut="fadeOutUpBig"
-    animationInDuration={1400}
-    isVisible
-  >
     <div className="homepage">
       <h1 className="title">GitHub Fighters</h1>
       <h2 className="tagline">" become the next GitHub Champion! "</h2>
@@ -23,7 +17,6 @@ const HomePage = ({ start }) => (
         START
       </button>
     </div>
-  </Animated>
 
 
 );
