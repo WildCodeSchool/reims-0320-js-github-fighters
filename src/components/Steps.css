@@ -19,7 +19,7 @@
     margin: 0;
 }
 
-li {
+.steps-li {
     display: flex;
     justify-content: flex-start;
     margin-right: ;
