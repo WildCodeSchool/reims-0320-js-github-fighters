@@ -1,18 +1,11 @@
 import React from 'react';
 import './ShowWeapons.css';
+import AppContext from '../context/AppContext';
 
 class ShowWeapons extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectGists: false,
-      selectFollowing: false,
-      selectRepository: false,
-      selectFollowers: false,
-    };
-  }
-
   render() {
+    const { state, selectWeapon } = this.context;
+    const { player } = this.props;
     return (
       <div className="WeaponsContainer">
         <div className="WeaponsContainerTitle">
@@ -22,11 +15,11 @@ class ShowWeapons extends React.Component {
           <button
             type="button"
             className={
-              this.state.selectGists ? 'GistsIconSelected' : 'GistsIcon'
+              state[player].selectGists ? 'GistsIconSelected' : 'GistsIcon'
             }
             onClick={() => {
-              this.setState({
-                selectGists: !this.state.selectGists,
+              selectWeapon(player, {
+                selectGists: !state[player].selectGists,
                 selectFollowing: false,
                 selectRepository: false,
                 selectFollowers: false,
@@ -44,11 +37,11 @@ class ShowWeapons extends React.Component {
           <button
             type="button"
             className={
-              this.state.selectFollowing ? 'FollowingIconSelected' : 'FollowingIcon'
+              state[player].selectFollowing ? 'FollowingIconSelected' : 'FollowingIcon'
             }
             onClick={() => {
-              this.setState({
-                selectFollowing: !this.state.selectFollowing,
+              selectWeapon(player, {
+                selectFollowing: !state[player].selectFollowing,
                 selectGists: false,
                 selectRepository: false,
                 selectFollowers: false,
@@ -66,11 +59,11 @@ class ShowWeapons extends React.Component {
           <button
             type="button"
             className={
-              this.state.selectRepository ? 'RepositoryIconSelected' : 'RepositoryIcon'
+              state[player].selectRepository ? 'RepositoryIconSelected' : 'RepositoryIcon'
             }
             onClick={() => {
-              this.setState({
-                selectRepository: !this.state.selectRepository,
+              selectWeapon(player, {
+                selectRepository: !state[player].selectRepository,
                 selectFollowing: false,
                 selectGists: false,
                 selectFollowers: false,
@@ -96,11 +89,11 @@ class ShowWeapons extends React.Component {
           <button
             type="button"
             className={
-              this.state.selectFollowers ? 'FollowersIconSelected' : 'FollowersIcon'
+              state[player].selectFollowers ? 'FollowersIconSelected' : 'FollowersIcon'
             }
             onClick={() => {
-              this.setState({
-                selectFollowers: !this.state.selectFollowers,
+              selectWeapon(player, {
+                selectFollowers: !state[player].selectFollowers,
                 selectFollowing: false,
                 selectRepository: false,
                 selectGists: false,
@@ -128,6 +121,6 @@ class ShowWeapons extends React.Component {
     );
   }
 }
-
+ShowWeapons.contextType = AppContext;
 
 export default ShowWeapons;
