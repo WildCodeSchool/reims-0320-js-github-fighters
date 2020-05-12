@@ -5,9 +5,9 @@ import { Animated } from 'react-animated-css';
 import SearchFighter from './components/SearchFighter';
 import FighterCard from './components/FighterCard';
 import Start from './components/Start';
-
 import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
+import AppContext from './context/AppContext';
 
 
 class App extends React.Component {
@@ -19,9 +19,60 @@ class App extends React.Component {
       infosFighter: null,
       keywordsChallenger: null,
       infosChallenger: null,
+      fighter: {
+        selectGists: false,
+        selectFollowing: false,
+        selectRepository: false,
+        selectFollowers: false,
+      },
+      challenger: {
+        selectGists: false,
+        selectFollowing: false,
+        selectRepository: false,
+        selectFollowers: false,
+      },
+      random: {
+        gists: false,
+        repos: false,
+        followers: false,
+        following: false,
+        number: null,
+      },
     };
     this.searchFighter = this.searchFighter.bind(this);
     this.searchChallenger = this.searchChallenger.bind(this);
+  }
+
+  fight = () => {
+    const number = Math.floor(
+      Math.random() * 4,
+    );
+
+    const newState = {
+      gists: false,
+      repos: false,
+      followers: false,
+      following: false,
+      number,
+    };
+
+    switch (number) {
+      case 0:
+        newState.gists = true;
+        break;
+      case 1:
+        newState.repos = true;
+        break;
+      case 2:
+        newState.followers = true;
+        break;
+      case 3:
+        newState.following = true;
+        break;
+      default:
+    }
+
+    this.setState({ random: newState });
   }
 
   setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
@@ -69,6 +120,12 @@ class App extends React.Component {
 
   render() {
     return (
+      <AppContext.Provider
+        value={{
+          state: this.state,
+          selectWeapon: (player, newState) => this.setState({ [player]: newState }),
+        }}
+      >
       <div className="App">
         <header className="App-header">
           {this.state.homebouton ? (
@@ -104,7 +161,7 @@ class App extends React.Component {
                     isVisible
                   >
                     <FighterCard infos={this.state.infosFighter} />
-                    <ShowWeapons />
+                    <ShowWeapons player="fighter" />
                   </Animated>
                 </>
                 )}
@@ -126,7 +183,7 @@ class App extends React.Component {
                       {' '}
                       {this.state.infosChallenger.login}
                     </span>
-                    <Start />
+                    <Start onClick={this.fight} />
                   </div>
                 </Animated>
               </>
@@ -147,7 +204,6 @@ class App extends React.Component {
                 </Animated>
 
                 {this.state.infosChallenger && (
-                <>
                   <Animated
                     animationIn="bounceInRight"
                     animationOut="fadeOut"
@@ -157,18 +213,19 @@ class App extends React.Component {
                   >
 
                     <FighterCard infos={this.state.infosChallenger} />
-                    <ShowWeapons />
+                    <ShowWeapons player="challenger" />
                   </Animated>
-                </>
                 )}
               </div>
-              
+
             </div>
           )}
         </header>
       </div>
+      </AppContext.Provider>
     );
   }
 }
+
 
 export default App;
