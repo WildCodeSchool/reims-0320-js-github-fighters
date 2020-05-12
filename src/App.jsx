@@ -10,6 +10,7 @@ import HomePage from './components/HomePage';
 import AppContext from './context/AppContext';
 
 import Steps from './components/Steps';
+import Footer from './components/Footer'
 
 
 class App extends React.Component {
@@ -224,6 +225,7 @@ class App extends React.Component {
 
           )}
           <Steps />
+          <Footer />
         </header>
       </div>
       </AppContext.Provider>
