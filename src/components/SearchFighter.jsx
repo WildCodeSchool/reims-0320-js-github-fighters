@@ -14,7 +14,7 @@ const SearchFighter = ({
     <label>{label}</label>
     <FighterInput setText={setKeywords} />
     <SearchButton onClick={onSearch}>
-      Recherche
+      Search
     </SearchButton>
 
   </div>

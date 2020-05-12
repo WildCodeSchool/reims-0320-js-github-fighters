@@ -9,6 +9,8 @@ import Start from './components/Start';
 import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
 
+import Steps from './components/Steps';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -163,7 +165,9 @@ class App extends React.Component {
                 )}
               </div>
             </div>
+
           )}
+          <Steps />
         </header>
       </div>
     );
