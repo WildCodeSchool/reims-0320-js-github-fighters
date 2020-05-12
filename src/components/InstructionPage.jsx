@@ -13,7 +13,16 @@ class InstructionPage extends React.Component {
   render() {
     return (
       <>
-        <button className="instructionbuton" onClick={() => { if (this.state.button === false) { this.setState({ button: true }); } else { this.setState({ button: false }); } }}>
+        <button
+          className="instructionbuton"
+          onClick={() => {
+            if (this.state.button === false) {
+              this.setState({ button: true });
+            } else {
+              this.setState({ button: false });
+            }
+          }}
+        >
           Introduction
         </button>
 
