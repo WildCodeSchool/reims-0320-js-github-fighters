@@ -1,42 +1,17 @@
-.homepage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: url(img/FOND-DIAPO-2.png) no-repeat center center fixed; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    min-width: 100%;
-    min-height: 100%;
-    background-size: cover;
-  }
-
-.title {
-    color: black;
-    font-size: 10em;
-   
-}
-
-.tagline{
-    font-size: 5vh;
-}
-
-.buttonstart{
+.instructionbuton{
     padding:  3vh;
     font-size: 3vh ;
     font-weight: bold;
     border: 3px solid black;
     border-radius: 10%;
     width: 15%;
-    text-align: center;
-    margin-top: 2rem;
     position: relative;
     overflow: hidden;
     line-height: 100%;
     cursor: pointer;
 }
 
-.buttonstart::after {
+.instructionbuton::after {
     content: '';
     position: absolute;
     top: -50%;
@@ -47,7 +22,7 @@
     transform: rotateZ(60deg) translate(-5em, 7.5em);
   }
 
-.buttonstart:hover::after, .buttonstart:focus::after {
+.instructionbuton:hover::after, .instructionbuton:focus::after {
     animation: sheen 1s forwards;
 }
 
@@ -56,8 +31,3 @@
       transform: rotateZ(60deg) translate(1em, -9em);
     }
   }
-
-
-
-
-

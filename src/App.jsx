@@ -9,6 +9,8 @@ import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
 import AppContext from './context/AppContext';
 
+import Steps from './components/Steps';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -219,7 +221,9 @@ class App extends React.Component {
               </div>
 
             </div>
+
           )}
+          <Steps />
         </header>
       </div>
       </AppContext.Provider>
