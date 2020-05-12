@@ -10,13 +10,11 @@ const SearchFighter = ({
   label,
 }) => (
   <div className="SearchFighter">
-
     <label>{label}</label>
     <FighterInput setText={setKeywords} />
     <SearchButton onClick={onSearch}>
       Recherche
     </SearchButton>
-
   </div>
 );
 export default SearchFighter;
