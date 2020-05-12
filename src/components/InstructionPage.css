@@ -1,8 +1,33 @@
-.intructionbuton{
+.instructionbuton{
     padding:  3vh;
     font-size: 3vh ;
     font-weight: bold;
     border: 3px solid black;
     border-radius: 10%;
     width: 15%;
+    position: relative;
+    overflow: hidden;
+    line-height: 100%;
+    cursor: pointer;
 }
+
+.instructionbuton::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), black 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+  }
+
+.instructionbuton:hover::after, .instructionbuton:focus::after {
+    animation: sheen 1s forwards;
+}
+
+@keyframes sheen {
+    100% {
+      transform: rotateZ(60deg) translate(1em, -9em);
+    }
+  }
