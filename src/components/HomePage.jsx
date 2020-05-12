@@ -1,6 +1,5 @@
 import React from 'react';
 import './HomePage.css';
-import { Animated } from 'react-animated-css';
 import InstructionPage from './InstructionPage';
 
 const HomePage = ({ start }) => (
