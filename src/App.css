@@ -4,6 +4,17 @@
 
 .Fighter {
   display: flex;
+  justify-content: space-around;
+}
+
+.first-fighter {
+  display: flex;
+  flex-direction: column;
+}
+
+.second-fighter {
+  display: flex;
+  flex-direction: column;
 }
 
 .versus {
