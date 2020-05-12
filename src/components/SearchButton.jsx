@@ -5,10 +5,9 @@ const SearchButton = ({
   onClick,
   children,
 }) => (
-  <button onClick={onClick} type="submit">
+  <button onClick={onClick} type="button">
     {children}
   </button>
 );
 
 export default SearchButton;
-onclick=" if(this.form.onsubmit){this.form.submit()}"
