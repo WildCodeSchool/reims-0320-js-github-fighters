@@ -39,6 +39,7 @@ class App extends React.Component {
         selectFollowing: false,
         selectRepository: false,
         selectFollowers: false,
+        footer: false,
 
       },
       result: null,
@@ -58,20 +59,25 @@ class App extends React.Component {
       selectFollowing: false,
       selectRepository: false,
       selectFollowers: false,
+      footer: false,
     };
 
     switch (number) {
       case 0:
         newState.selectGists = true;
+        newState.footer = true ;
         break;
       case 1:
         newState.selectRepository = true;
+        newState.footer = true ;
         break;
       case 2:
         newState.selectFollowers = true;
+        newState.footer = true ;
         break;
       case 3:
         newState.selectFollowing = true;
+        newState.footer = true ;
         break;
       default:
     }
@@ -287,7 +293,7 @@ class App extends React.Component {
         {this.state.random.footer
         && (
         <div className="result">
-          <FighterCard infos={this.state.infosChallenger} />
+          <FighterCard infos={this.state.infosFighter} />
           <div className="expli">
             <div>
               <Result />
@@ -302,7 +308,7 @@ class App extends React.Component {
               {' '}
             </button>
           </div>
-          <FighterCard infos={this.state.infosFighter} />
+          <FighterCard infos={this.state.infosChallenger} />
           <Footer />
         </div>
         ) }
