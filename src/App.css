@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .Fighter {
   display: flex;
   justify-content: space-around;
@@ -23,3 +24,47 @@
   font-weight: bold;
   margin-top: 2rem;
 }
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expli{
+  flex-direction: column;
+}
+.restarte{
+  padding:  3vh;
+  font-size: 3vh ;
+  font-weight: bold;
+  border: 3px solid black;
+  border-radius: 10%;
+  position: relative;
+  overflow: hidden;
+  line-height: 100%;
+  cursor: pointer;
+  
+}
+
+.restarte::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), black 50%, rgba(229, 172, 142, 0));
+  transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+
+.restarte:hover::after, .restarte:focus::after {
+  animation: sheen 1s forwards;
+}
+
+@keyframes sheen {
+  100% {
+    transform: rotateZ(60deg) translate(1em, -9em);
+  }
+}
+

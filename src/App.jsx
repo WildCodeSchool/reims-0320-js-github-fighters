@@ -9,7 +9,6 @@ import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
 import Result from './components/Result';
 import AppContext from './context/AppContext';
-
 import Steps from './components/Steps';
 import Footer from './components/Footer';
 
@@ -40,6 +39,7 @@ class App extends React.Component {
         selectFollowing: false,
         selectRepository: false,
         selectFollowers: false,
+
       },
       result: null,
     };
@@ -53,6 +53,7 @@ class App extends React.Component {
     );
 
     const newState = {
+
       selectGists: false,
       selectFollowing: false,
       selectRepository: false,
@@ -119,6 +120,7 @@ class App extends React.Component {
     };
 
     this.setState({ random: newState, result });
+
   }
 
   setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
@@ -133,6 +135,10 @@ class App extends React.Component {
         });
       });
   };
+
+   refreshPage= () => {
+     window.location.reload(false);
+   }
 
   setKeywordsChallenger = (keywordsChallenger) => this.setState({ keywordsChallenger });
 
@@ -163,7 +169,6 @@ class App extends React.Component {
 
   getGistsChallenger = () => this.state.infosChallenger.public_gists;
 
-
   render() {
     return (
       <AppContext.Provider
@@ -172,11 +177,16 @@ class App extends React.Component {
           selectWeapon: (player, newState) => this.setState({ [player]: newState }),
         }}
       >
+
+        {this.state.random.footer !== true
+        && (
         <div className="App">
           <header className="App-header">
             {this.state.homebouton ? (
               <HomePage start={() => {
+
               // mise a jour du state en fonction de sa valeur presédente
+
                 this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
               }}
               />
@@ -229,7 +239,9 @@ class App extends React.Component {
                         {' '}
                         {this.state.infosChallenger.login}
                       </span>
+
                       {this.state.result != null ? <Result /> : <Start onClick={this.fight} />}
+
                     </div>
                   </Animated>
                 </>
@@ -264,14 +276,37 @@ class App extends React.Component {
                   )}
                 </div>
 
-
               </div>
 
             )}
             <Steps />
-            <Footer />
+
           </header>
         </div>
+        )}
+        {this.state.random.footer
+        && (
+        <div className="result">
+          <FighterCard infos={this.state.infosChallenger} />
+          <div className="expli">
+            <div>
+              <Result />
+            </div>
+            <button
+              onClick={this.refreshPage}
+              className="restarte"
+              type="button"
+            >
+              {' '}
+              Restarte
+              {' '}
+            </button>
+          </div>
+          <FighterCard infos={this.state.infosFighter} />
+          <Footer />
+        </div>
+        ) }
+
       </AppContext.Provider>
     );
   }
