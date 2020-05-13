@@ -7,6 +7,7 @@ import FighterCard from './components/FighterCard';
 import Start from './components/Start';
 import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
+import Result from './components/Result';
 import AppContext from './context/AppContext';
 import Steps from './components/Steps';
 import Footer from './components/Footer';
@@ -34,13 +35,13 @@ class App extends React.Component {
         selectFollowers: false,
       },
       random: {
-        gists: false,
-        repos: false,
-        followers: false,
-        following: false,
-        number: null,
-        footer: false,
+        selectGists: false,
+        selectFollowing: false,
+        selectRepository: false,
+        selectFollowers: false,
+
       },
+      result: null,
     };
     this.searchFighter = this.searchFighter.bind(this);
     this.searchChallenger = this.searchChallenger.bind(this);
@@ -52,34 +53,74 @@ class App extends React.Component {
     );
 
     const newState = {
-      gists: false,
-      repos: false,
-      followers: false,
-      following: false,
-      number,
-      footer: false,
+
+      selectGists: false,
+      selectFollowing: false,
+      selectRepository: false,
+      selectFollowers: false,
     };
 
     switch (number) {
       case 0:
-        newState.gists = true;
-        newState.footer = true;
+        newState.selectGists = true;
         break;
       case 1:
-        newState.repos = true;
-        newState.footer = true;
+        newState.selectRepository = true;
         break;
       case 2:
-        newState.followers = true;
-        newState.footer = true;
+        newState.selectFollowers = true;
         break;
       case 3:
-        newState.following = true;
-        newState.footer = true;
+        newState.selectFollowing = true;
         break;
       default:
     }
-    this.setState({ random: newState });
+
+    const round = (propertyName) => {
+      let difference = 0;
+
+      if (this.state[propertyName].selectFollowers) {
+        difference = this.getFollowersFighter() - this.getFollowersChallenger();
+      }
+      if (this.state[propertyName].selectFollowing) {
+        difference = this.getFollowingFighter() - this.getFollowingChallenger();
+      }
+      if (this.state[propertyName].selectGists) {
+        difference = this.getGistsFighter() - this.getGistsChallenger();
+      }
+      if (this.state[propertyName].selectRepos) {
+        difference = this.getRepositoryFighter() - this.getRepositoryChallenger();
+      }
+
+      if (difference > 0) {
+        return {
+          fighterScore: 3,
+          challengerScore: 0,
+        };
+      } else if (difference < 0) {
+        return {
+          fighterScore: 0,
+          challengerScore: 3,
+        };
+      } else {
+        return {
+          fighterScore: 1,
+          challengerScore: 1,
+        };
+      }
+    };
+
+    const round1 = round('fighter');
+    const round2 = round('challenger');
+    const round3 = round('random');
+
+    const result = {
+      fighterScore: round1.fighterScore + round2.fighterScore + round3.fighterScore,
+      challengerScore: round1.challengerScore + round2.challengerScore + round3.challengerScore,
+    };
+
+    this.setState({ random: newState, result });
+
   }
 
   setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
@@ -116,7 +157,7 @@ class App extends React.Component {
 
   getFollowersFighter = () => this.state.infosFighter.followers;
 
-  getFollowingFigther = () => this.state.infosFighter.following;
+  getFollowingFighter = () => this.state.infosFighter.following;
 
   getGistsFighter = () => this.state.infosFighter.public_gists;
 
@@ -136,13 +177,16 @@ class App extends React.Component {
           selectWeapon: (player, newState) => this.setState({ [player]: newState }),
         }}
       >
+
         {this.state.random.footer !== true
         && (
         <div className="App">
           <header className="App-header">
             {this.state.homebouton ? (
               <HomePage start={() => {
-                // mise a jour du state en fonction de sa valeur presédente
+
+              // mise a jour du state en fonction de sa valeur presédente
+
                 this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
               }}
               />
@@ -195,7 +239,9 @@ class App extends React.Component {
                         {' '}
                         {this.state.infosChallenger.login}
                       </span>
-                      <Start onClick={this.fight} />
+
+                      {this.state.result != null ? <Result /> : <Start onClick={this.fight} />}
+
                     </div>
                   </Animated>
                 </>
@@ -244,16 +290,7 @@ class App extends React.Component {
           <FighterCard infos={this.state.infosChallenger} />
           <div className="expli">
             <div>
-              <p>Darckvador a gangée a 9:0</p>
-              <p>
-                gits 14000 vs 30
-              </p>
-              <p>
-                Repos 200 vs 10
-              </p>
-              <p>
-                follwer 300000 vs 45
-              </p>
+              <Result />
             </div>
             <button
               onClick={this.refreshPage}
@@ -269,6 +306,7 @@ class App extends React.Component {
           <Footer />
         </div>
         ) }
+
       </AppContext.Provider>
     );
   }
