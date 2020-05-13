@@ -7,10 +7,11 @@ import FighterCard from './components/FighterCard';
 import Start from './components/Start';
 import ShowWeapons from './components/ShowWeapons';
 import HomePage from './components/HomePage';
+import Result from './components/Result';
 import AppContext from './context/AppContext';
 
 import Steps from './components/Steps';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
 
 
 class App extends React.Component {
@@ -35,12 +36,12 @@ class App extends React.Component {
         selectFollowers: false,
       },
       random: {
-        gists: false,
-        repos: false,
-        followers: false,
-        following: false,
-        number: null,
+        selectGists: false,
+        selectFollowing: false,
+        selectRepository: false,
+        selectFollowers: false,
       },
+      result: null,
     };
     this.searchFighter = this.searchFighter.bind(this);
     this.searchChallenger = this.searchChallenger.bind(this);
@@ -52,30 +53,72 @@ class App extends React.Component {
     );
 
     const newState = {
-      gists: false,
-      repos: false,
-      followers: false,
-      following: false,
-      number,
+      selectGists: false,
+      selectFollowing: false,
+      selectRepository: false,
+      selectFollowers: false,
     };
 
     switch (number) {
       case 0:
-        newState.gists = true;
+        newState.selectGists = true;
         break;
       case 1:
-        newState.repos = true;
+        newState.selectRepository = true;
         break;
       case 2:
-        newState.followers = true;
+        newState.selectFollowers = true;
         break;
       case 3:
-        newState.following = true;
+        newState.selectFollowing = true;
         break;
       default:
     }
 
-    this.setState({ random: newState });
+    const round = (propertyName) => {
+      let difference = 0;
+
+      if (this.state[propertyName].selectFollowers) {
+        difference = this.getFollowersFighter() - this.getFollowersChallenger();
+      }
+      if (this.state[propertyName].selectFollowing) {
+        difference = this.getFollowingFighter() - this.getFollowingChallenger();
+      }
+      if (this.state[propertyName].selectGists) {
+        difference = this.getGistsFighter() - this.getGistsChallenger();
+      }
+      if (this.state[propertyName].selectRepos) {
+        difference = this.getRepositoryFighter() - this.getRepositoryChallenger();
+      }
+
+      if (difference > 0) {
+        return {
+          fighterScore: 3,
+          challengerScore: 0,
+        };
+      } else if (difference < 0) {
+        return {
+          fighterScore: 0,
+          challengerScore: 3,
+        };
+      } else {
+        return {
+          fighterScore: 1,
+          challengerScore: 1,
+        };
+      }
+    };
+
+    const round1 = round('fighter');
+    const round2 = round('challenger');
+    const round3 = round('random');
+
+    const result = {
+      fighterScore: round1.fighterScore + round2.fighterScore + round3.fighterScore,
+      challengerScore: round1.challengerScore + round2.challengerScore + round3.challengerScore,
+    };
+
+    this.setState({ random: newState, result });
   }
 
   setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
@@ -108,7 +151,7 @@ class App extends React.Component {
 
   getFollowersFighter = () => this.state.infosFighter.followers;
 
-  getFollowingFigther = () => this.state.infosFighter.following;
+  getFollowingFighter = () => this.state.infosFighter.following;
 
   getGistsFighter = () => this.state.infosFighter.public_gists;
 
@@ -129,33 +172,17 @@ class App extends React.Component {
           selectWeapon: (player, newState) => this.setState({ [player]: newState }),
         }}
       >
-      <div className="App">
-        <header className="App-header">
-          {this.state.homebouton ? (
-            <HomePage start={() => {
+        <div className="App">
+          <header className="App-header">
+            {this.state.homebouton ? (
+              <HomePage start={() => {
               // mise a jour du state en fonction de sa valeur presédente
-              this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
-            }}
-            />
-          ) : (
-            <div className="Fighter">
-              <div className="first-fighter">
-                <Animated
-                  animationIn="bounceInLeft"
-                  animationOut="fadeOut"
-                  animationInDuration={1000}
-                  animationOutDuration={1000}
-                  isVisible
-                >
-                  <SearchFighter
-                    label="Fighter :"
-                    setKeywords={this.setKeywordsFighter}
-                    onSearch={this.searchFighter}
-                  />
-                </Animated>
-
-                {this.state.infosFighter && (
-                <>
+                this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
+              }}
+              />
+            ) : (
+              <div className="Fighter">
+                <div className="first-fighter">
                   <Animated
                     animationIn="bounceInLeft"
                     animationOut="fadeOut"
@@ -163,50 +190,66 @@ class App extends React.Component {
                     animationOutDuration={1000}
                     isVisible
                   >
-                    <FighterCard infos={this.state.infosFighter} />
-                    <ShowWeapons player="fighter" />
+                    <SearchFighter
+                      label="Fighter :"
+                      setKeywords={this.setKeywordsFighter}
+                      onSearch={this.searchFighter}
+                    />
+                  </Animated>
+
+                  {this.state.infosFighter && (
+                  <>
+                    <Animated
+                      animationIn="bounceInLeft"
+                      animationOut="fadeOut"
+                      animationInDuration={1000}
+                      animationOutDuration={1000}
+                      isVisible
+                    >
+                      <FighterCard infos={this.state.infosFighter} />
+                      <ShowWeapons player="fighter" />
+                    </Animated>
+                  </>
+                  )}
+                </div>
+                {this.state.infosFighter && this.state.infosChallenger && (
+                <>
+                  <Animated
+                    animationIn="bounceInDown"
+                    animationOut="fadeOut"
+                    animationInDuration={3000}
+                    animationOutDuration={1500}
+                    isVisible
+                  >
+                    <div className="random-weapons">
+                      <span className="versus">
+                        {this.state.infosFighter.login}
+                        {' '}
+                        VS
+                        {' '}
+                        {this.state.infosChallenger.login}
+                      </span>
+                      {this.state.result != null ? <Result /> : <Start onClick={this.fight} />}
+                    </div>
                   </Animated>
                 </>
                 )}
-              </div>
-              {this.state.infosFighter && this.state.infosChallenger && (
-              <>
-                <Animated
-                  animationIn="bounceInDown"
-                  animationOut="fadeOut"
-                  animationInDuration={3000}
-                  animationOutDuration={1500}
-                  isVisible
-                >
-                  <div className="random-weapons">
-                    <span className="versus">
-                      {this.state.infosFighter.login}
-                      {' '}
-                      VS
-                      {' '}
-                      {this.state.infosChallenger.login}
-                    </span>
-                    <Start onClick={this.fight} />
-                  </div>
-                </Animated>
-              </>
-              )}
-              <div className="second-fighter">
-                <Animated
-                  animationIn="bounceInRight"
-                  animationOut="fadeOut"
-                  animationInDuration={1000}
-                  animationOutDuration={1000}
-                  isVisible
-                >
-                  <SearchFighter
-                    label="Challenger :"
-                    setKeywords={this.setKeywordsChallenger}
-                    onSearch={this.searchChallenger}
-                  />
-                </Animated>
+                <div className="second-fighter">
+                  <Animated
+                    animationIn="bounceInRight"
+                    animationOut="fadeOut"
+                    animationInDuration={1000}
+                    animationOutDuration={1000}
+                    isVisible
+                  >
+                    <SearchFighter
+                      label="Challenger :"
+                      setKeywords={this.setKeywordsChallenger}
+                      onSearch={this.searchChallenger}
+                    />
+                  </Animated>
 
-                {this.state.infosChallenger && (
+                  {this.state.infosChallenger && (
                   <Animated
                     animationIn="bounceInRight"
                     animationOut="fadeOut"
@@ -218,16 +261,17 @@ class App extends React.Component {
                     <FighterCard infos={this.state.infosChallenger} />
                     <ShowWeapons player="challenger" />
                   </Animated>
-                )}
+                  )}
+                </div>
+
+
               </div>
 
-            </div>
-
-          )}
-          <Steps />
-          <Footer />
-        </header>
-      </div>
+            )}
+            <Steps />
+            <Footer />
+          </header>
+        </div>
       </AppContext.Provider>
     );
   }
