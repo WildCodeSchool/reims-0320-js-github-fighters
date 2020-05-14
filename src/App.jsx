@@ -83,19 +83,19 @@ class App extends React.Component {
       default:
     }
 
-    const round = (propertyName) => {
+    const round = (data) => {
       let difference = 0;
 
-      if (this.state[propertyName].selectFollowers) {
+      if (data.selectFollowers) {
         difference = this.getFollowersFighter() - this.getFollowersChallenger();
       }
-      if (this.state[propertyName].selectFollowing) {
+      if (data.selectFollowing) {
         difference = this.getFollowingFighter() - this.getFollowingChallenger();
       }
-      if (this.state[propertyName].selectGists) {
+      if (data.selectGists) {
         difference = this.getGistsFighter() - this.getGistsChallenger();
       }
-      if (this.state[propertyName].selectRepository) {
+      if (data.selectRepository) {
         difference = this.getRepositoryFighter() - this.getRepositoryChallenger();
       }
 
@@ -116,11 +116,17 @@ class App extends React.Component {
       };
     };
 
-    const round1 = round('fighter');
-    const round2 = round('challenger');
-    const round3 = round('random');
+    const round1 = round(this.state.fighter);
+    const round2 = round(this.state.challenger);
+    const round3 = round(newState);
 
     const result = {
+      round1F: round1.fighterScore,
+      round1C: round1.challengerScore,
+      round2F: round2.fighterScore,
+      round2C: round2.challengerScore,
+      round3F: round3.fighterScore,
+      round3C: round1.challengerScore,
       fighterScore: round1.fighterScore + round2.fighterScore + round3.fighterScore,
       challengerScore: round1.challengerScore + round2.challengerScore + round3.challengerScore,
     };
@@ -189,7 +195,9 @@ class App extends React.Component {
           <header className="App-header">
             {this.state.homebouton ? (
               <HomePage start={() => {
+
                 // mise a jour du state en fonction de sa valeur presédente
+
                 this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
               }}
               />
@@ -243,7 +251,7 @@ class App extends React.Component {
                         {this.state.infosChallenger.login}
                       </span>
 
-                      {this.state.result != null ? <Result /> : <Start onClick={this.fight} />}
+                      <Start onClick={this.fight} />
 
                     </div>
                   </Animated>

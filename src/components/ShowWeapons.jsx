@@ -2,7 +2,7 @@ import React from 'react';
 import './ShowWeapons.css';
 import AppContext from '../context/AppContext';
 
-class ShowWeapons extends React.Component {
+class ShowWeapons extends React.PureComponent {
   render() {
     const { state, selectWeapon } = this.context;
     const { player } = this.props;

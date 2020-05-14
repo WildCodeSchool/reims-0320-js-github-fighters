@@ -8,7 +8,7 @@ const Steps = () => (
     <ul className="steps-list">
       <li className="steps-li">
         <strong>Step : 1 </strong>
-        Type a GitHub username in both fields and click 'Search'.
+        Type a GitHub username in both fields and click &apos;Search&apos;.
       </li>
       <li className="steps-li">
         <strong>Step : 2 </strong>
@@ -16,7 +16,7 @@ const Steps = () => (
       </li>
       <li className="steps-li">
         <strong>Step : 3 </strong>
-        Click on the 'START' button to start the fight, a random weapon is chosen to make it fair.
+        Click on the &apos;START&apos; button to start the fight, a random weapon is chosen to make it fair.
       </li>
     </ul>
 

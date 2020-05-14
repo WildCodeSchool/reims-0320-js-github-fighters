@@ -9,12 +9,18 @@ const SearchFighter = ({
   onSearch,
   label,
 }) => (
-  <div className="SearchFighter">
+  <form
+    className="SearchFighter"
+    onSubmit={(event) => {
+      event.preventDefault();
+      onSearch();
+    }}
+  >
     <label>{label}</label>
     <FighterInput setText={setKeywords} />
-    <SearchButton onClick={onSearch}>
+    <button type="submit">
       Search
-    </SearchButton>
-  </div>
+    </button>
+  </form>
 );
 export default SearchFighter;
