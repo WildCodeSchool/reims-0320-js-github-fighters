@@ -1,4 +1,4 @@
-Copyright (c) <2020> <Brian THELLIER, Stephaine PANTIEZ, Fabrice ROGER  holders>
+Copyright (c) <2020> <Brian THELLIER, Stephaine PANTIEZ, Fabrice ROGER>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
