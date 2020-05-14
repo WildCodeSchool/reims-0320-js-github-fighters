@@ -88,6 +88,7 @@ class Start extends React.PureComponent {
           type="button"
         >
           FIGHT !!!
+
         </button>
       </>
     );

@@ -106,6 +106,7 @@
 }
 
 
+
 .FIGHT{
   padding:  3vh;
   font-size: 3vh ;
@@ -137,4 +138,7 @@
   100% {
     transform: rotateZ(60deg) translate(1em, -9em);
   }
+}
+.FIGHT:hover {
+  cursor: pointer;
 }

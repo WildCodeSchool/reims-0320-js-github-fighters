@@ -16,18 +16,21 @@ const Footer = () => (
             <li className="footer-li">
               <a href="https://www.linkedin.com/in/roger-fabrice/" target="_blank" rel="noopener noreferrer">
                 Fabrice ROGER
+                {' '}
                 <FaLinkedin />
               </a>
             </li>
             <li className="footer-li">
               <a href="https://www.linkedin.com/in/stephaine-pantiez-a310b31a4/" target="_blank" rel="noopener noreferrer">
                 Stéphaine PANTIEZ
+                {' '}
                 <FaLinkedin />
               </a>
             </li>
             <li className="footer-li">
               <a href="https://www.linkedin.com/in/brian-thellier/" target="_blank" rel="noopener noreferrer">
                 Brian THELLIER
+                {' '}
                 <FaLinkedin />
               </a>
             </li>
@@ -40,6 +43,7 @@ const Footer = () => (
             <li className="footer-li">
               <a href="https://www.wildcodeschool.com/fr-FR/campus/reims" target="_blank" rel="noopener noreferrer">
                 Wild Code Shool
+                {' '}
                 <FaExternalLinkAlt />
               </a>
             </li>
@@ -52,6 +56,7 @@ const Footer = () => (
             <li className="footer-li">
               <a href="https://developer.github.com/v3/" target="_blank" rel="noopener noreferrer">
                 API
+                {' '}
                 <FaExternalLinkAlt />
               </a>
             </li>
