@@ -3,7 +3,7 @@
     font-size: 3vh ;
     font-weight: bold;
     border: 3px solid black;
-    border-radius: 10%;
+    border-radius: 1rem;
     width: 15%;
     position: relative;
     overflow: hidden;
@@ -30,4 +30,30 @@
     100% {
       transform: rotateZ(60deg) translate(1em, -9em);
     }
-  }
+}
+
+.instruction-points {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.instruction-points div {
+  margin: 0 0 0.5rem 0;
+}
+
+.victory-points {
+  color: green;
+}
+
+.draw-points {
+  color: orange;
+}
+
+.defeat-points {
+  color: red;
+}
+
+section h1 {
+  text-transform: uppercase;
+  text-decoration: underline;
+}
