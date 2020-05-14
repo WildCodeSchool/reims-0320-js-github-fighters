@@ -2,8 +2,7 @@ import React from 'react';
 import './Start.css';
 import AppContext from '../context/AppContext';
 
-class Start extends React.Component {
-
+class Start extends React.PureComponent {
   render() {
     const { state } = this.context;
 
