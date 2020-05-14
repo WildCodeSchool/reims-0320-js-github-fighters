@@ -11,6 +11,7 @@ import Result from './components/Result';
 import AppContext from './context/AppContext';
 import Steps from './components/Steps';
 import Footer from './components/Footer';
+import Description from './components/Description';
 
 
 class App extends React.Component {
@@ -65,19 +66,19 @@ class App extends React.Component {
     switch (number) {
       case 0:
         newState.selectGists = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       case 1:
         newState.selectRepository = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       case 2:
         newState.selectFollowers = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       case 3:
         newState.selectFollowing = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       default:
     }
@@ -94,7 +95,7 @@ class App extends React.Component {
       if (this.state[propertyName].selectGists) {
         difference = this.getGistsFighter() - this.getGistsChallenger();
       }
-      if (this.state[propertyName].selectRepos) {
+      if (this.state[propertyName].selectRepository) {
         difference = this.getRepositoryFighter() - this.getRepositoryChallenger();
       }
 
@@ -103,17 +104,16 @@ class App extends React.Component {
           fighterScore: 3,
           challengerScore: 0,
         };
-      } else if (difference < 0) {
+      } if (difference < 0) {
         return {
           fighterScore: 0,
           challengerScore: 3,
         };
-      } else {
-        return {
-          fighterScore: 1,
-          challengerScore: 1,
-        };
       }
+      return {
+        fighterScore: 1,
+        challengerScore: 1,
+      };
     };
 
     const round1 = round('fighter');
@@ -126,7 +126,6 @@ class App extends React.Component {
     };
 
     this.setState({ random: newState, result });
-
   }
 
   setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
@@ -190,9 +189,7 @@ class App extends React.Component {
           <header className="App-header">
             {this.state.homebouton ? (
               <HomePage start={() => {
-
-              // mise a jour du state en fonction de sa valeur presédente
-
+                // mise a jour du state en fonction de sa valeur presédente
                 this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
               }}
               />
@@ -275,7 +272,6 @@ class App extends React.Component {
                     animationOutDuration={1000}
                     isVisible
                   >
-
                     <FighterCard infos={this.state.infosChallenger} />
                     <ShowWeapons player="challenger" />
                   </Animated>
@@ -293,22 +289,40 @@ class App extends React.Component {
         {this.state.random.footer
         && (
         <div className="result">
-          <FighterCard infos={this.state.infosFighter} />
+          <div className="show">
+            <FighterCard infos={this.state.infosFighter} />
+            <Description
+              player="fighter"
+              getFollowers={this.getFollowersFighter}
+              getGists={this.getGistsFighter}
+              getFollowing={this.getFollowingFighter}
+              getRepository={this.getRepositoryFighter}
+            />
+          </div>
           <div className="expli">
             <div>
               <Result />
             </div>
             <button
               onClick={this.refreshPage}
-              className="restarte"
+              className="restart"
               type="button"
             >
               {' '}
-              Restarte
+              Restart
               {' '}
             </button>
           </div>
-          <FighterCard infos={this.state.infosChallenger} />
+          <div className="show">
+            <FighterCard infos={this.state.infosChallenger} />
+            <Description
+              player="challenger"
+              getFollowers={this.getFollowersChallenger}
+              getGists={this.getGistsChallenger}
+              getFollowing={this.getFollowingChallenger}
+              getRepository={this.getRepositoryChallenger}
+            />
+          </div>
           <Footer />
         </div>
         ) }
