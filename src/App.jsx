@@ -334,7 +334,6 @@ class App extends React.Component {
           <Footer />
         </div>
         ) }
-
       </AppContext.Provider>
     );
   }
