@@ -24,7 +24,7 @@ class InstructionPage extends React.Component {
             }
           }}
         >
-          Introduction
+          HELP
         </button>
 
         {this.state.button && (
