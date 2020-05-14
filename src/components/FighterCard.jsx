@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './FighterCard.css';
 
 function FighterCard({ infos }) {
