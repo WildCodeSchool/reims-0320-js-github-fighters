@@ -65,36 +65,36 @@ class App extends React.Component {
     switch (number) {
       case 0:
         newState.selectGists = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       case 1:
         newState.selectRepository = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       case 2:
         newState.selectFollowers = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       case 3:
         newState.selectFollowing = true;
-        newState.footer = true ;
+        newState.footer = true;
         break;
       default:
     }
 
-    const round = (propertyName) => {
+    const round = (data) => {
       let difference = 0;
 
-      if (this.state[propertyName].selectFollowers) {
+      if (data.selectFollowers) {
         difference = this.getFollowersFighter() - this.getFollowersChallenger();
       }
-      if (this.state[propertyName].selectFollowing) {
+      if (data.selectFollowing) {
         difference = this.getFollowingFighter() - this.getFollowingChallenger();
       }
-      if (this.state[propertyName].selectGists) {
+      if (data.selectGists) {
         difference = this.getGistsFighter() - this.getGistsChallenger();
       }
-      if (this.state[propertyName].selectRepos) {
+      if (data.selectRepository) {
         difference = this.getRepositoryFighter() - this.getRepositoryChallenger();
       }
 
@@ -103,30 +103,34 @@ class App extends React.Component {
           fighterScore: 3,
           challengerScore: 0,
         };
-      } else if (difference < 0) {
+      } if (difference < 0) {
         return {
           fighterScore: 0,
           challengerScore: 3,
         };
-      } else {
-        return {
-          fighterScore: 1,
-          challengerScore: 1,
-        };
       }
+      return {
+        fighterScore: 1,
+        challengerScore: 1,
+      };
     };
 
-    const round1 = round('fighter');
-    const round2 = round('challenger');
-    const round3 = round('random');
+    const round1 = round(this.state.fighter);
+    const round2 = round(this.state.challenger);
+    const round3 = round(newState);
 
     const result = {
+      round1F: round1.fighterScore,
+      round1C: round1.challengerScore,
+      round2F: round2.fighterScore,
+      round2C: round2.challengerScore,
+      round3F: round3.fighterScore,
+      round3C: round1.challengerScore,
       fighterScore: round1.fighterScore + round2.fighterScore + round3.fighterScore,
       challengerScore: round1.challengerScore + round2.challengerScore + round3.challengerScore,
     };
 
     this.setState({ random: newState, result });
-
   }
 
   setKeywordsFighter = (keywordsFighter) => this.setState({ keywordsFighter });
@@ -190,7 +194,6 @@ class App extends React.Component {
           <header className="App-header">
             {this.state.homebouton ? (
               <HomePage start={() => {
-
               // mise a jour du state en fonction de sa valeur presédente
 
                 this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
@@ -246,7 +249,7 @@ class App extends React.Component {
                         {this.state.infosChallenger.login}
                       </span>
 
-                      {this.state.result != null ? <Result /> : <Start onClick={this.fight} />}
+                      <Start onClick={this.fight} />
 
                     </div>
                   </Animated>
@@ -304,7 +307,7 @@ class App extends React.Component {
               type="button"
             >
               {' '}
-              Restarte
+              Restart
               {' '}
             </button>
           </div>
