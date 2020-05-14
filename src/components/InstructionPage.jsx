@@ -24,7 +24,7 @@ class InstructionPage extends React.Component {
             }
           }}
         >
-          Introduction
+          INTRODUCTION
         </button>
 
         {this.state.button && (
@@ -35,20 +35,19 @@ class InstructionPage extends React.Component {
           isVisible
         >
           <section>
-            <h1>Arena rules:</h1>
-
-            <p>A champion versus a challenger both have a weapon of their choice, and finally the Arena Tormentor who will decide the last one.</p>
-            <p>A champion one weapon a challenger one weapon and a weapon given by the Tormentor in order to balance the fight. </p>
-            <p>
-              victory = 3 points
-              <br />
-              {' '}
-              Draw = 1 point
-              <br />
-              {' '}
-              Defeat = 0 points
-              {' '}
-            </p>
+            <h1>Arena rules :</h1>
+            <p>Champion versus challenger, both choose a weapon, and a weapon  is given by the "Tormentor" in order to balance the fight.</p>
+            <div className="instruction-points">
+              <div className="victory-points">
+                Victory = 3 points
+              </div>
+              <div className="draw-points">
+                Draw = 1 point
+              </div>
+              <div className="defeat-points">
+                Defeat = 0 point
+              </div>
+            </div>
           </section>
         </Animated>
         )}
