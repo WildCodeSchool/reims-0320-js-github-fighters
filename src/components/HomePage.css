@@ -14,11 +14,13 @@
 .title {
     color: black;
     font-size: 10em;
+    margin: 7rem 0;
    
 }
 
 .tagline{
     font-size: 5vh;
+    margin: 0 0 4rem 0;
 }
 
 .buttonstart{
@@ -26,7 +28,7 @@
     font-size: 3vh ;
     font-weight: bold;
     border: 3px solid black;
-    border-radius: 10%;
+    border-radius: 1rem;
     width: 15%;
     text-align: center;
     margin-top: 2rem;

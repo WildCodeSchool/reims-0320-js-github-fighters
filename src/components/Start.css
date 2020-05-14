@@ -104,3 +104,13 @@
   align-items: center;
   margin: 0 1em 0 0;
 }
+
+
+.start-button {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.start-button:hover {
+  cursor: pointer;
+}
