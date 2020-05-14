@@ -1,0 +1,28 @@
+.Result{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    
+}
+.Record{
+    padding: 10px;
+    margin: 10px;
+    justify-content: auto;
+}
+
+.fighterscore{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+}
+.Csc{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: space-around;
+    }
+
+    .Margin{
+        margin-right: 10px;
+    }

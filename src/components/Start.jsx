@@ -81,14 +81,14 @@ class Start extends React.PureComponent {
             </div>
           </div>
         </div>
-        <button
-          className="start-button"
+
+        <button className ='FIGHT'
           onClick={() => {
             this.props.onClick();
           }}
           type="button"
         >
-          START !
+          FIGHT !!!
         </button>
       </>
     );

@@ -1,20 +1,48 @@
 import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
+import './Result.css';
 
 const Result = () => {
   const { state } = useContext(AppContext);
   return (
     <>
-      {state.result.fighterScore >= state.result.challengerScore
-        ? <h1>Fighter WIN</h1>
-        : <h1>Challenger WIN</h1>}
-      <p>
-        fighter score:
-        {state.result.fighterScore}
-        {' '}
-        vs challenger score:
-        {state.result.challengerScore}
-      </p>
+      <div className="Result">
+        {state.result.fighterScore >= state.result.challengerScore
+          ? <h1>Fighter WIN</h1>
+          : <h1>Challenger WIN</h1>}
+        <div className="Record">
+          <div className="fighterscore">
+            <div>
+              <p>
+                Fighter score:
+              </p>
+            </div>
+            <div>
+              <p>
+                {state.result.fighterScore}
+                {' '}
+              </p>
+            </div>
+          </div>
+          <div className="vs">
+            <p>
+              VS
+            </p>
+          </div>
+          <div className="Csc">
+            <div className="Margin">
+              <p>
+                Challenger score:
+              </p>
+            </div>
+            <div>
+              <p>
+                {state.result.challengerScore}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </>
   );
