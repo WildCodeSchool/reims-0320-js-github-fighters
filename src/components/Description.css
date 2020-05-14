@@ -1,0 +1,32 @@
+.Description {
+  display: flex;
+  align-items: center;  
+  text-align: center;
+  flex-direction: column;
+  border: solid #d1d5da 1px;
+  border-radius: 3px;
+  margin: 2em;
+  padding: 10px;
+}
+
+.IconLabelD{
+    display: flex;
+    align-items: baseline;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.WeaponsContainerIconsD{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+p{
+    font-size: large;
+}
+.allIcon{
+    border: solid #d1d5da 1px;
+    border-radius: 3px;
+}
