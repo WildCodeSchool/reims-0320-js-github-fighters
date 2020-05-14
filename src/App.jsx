@@ -317,7 +317,7 @@ class App extends React.Component {
               type="button"
             >
               {' '}
-              Restart
+              RESTART
               {' '}
             </button>
           </div>
