@@ -11,6 +11,7 @@ import Result from './components/Result';
 import AppContext from './context/AppContext';
 import Steps from './components/Steps';
 import Footer from './components/Footer';
+import Description from './components/Description';
 
 
 class App extends React.Component {
@@ -194,7 +195,8 @@ class App extends React.Component {
           <header className="App-header">
             {this.state.homebouton ? (
               <HomePage start={() => {
-              // mise a jour du state en fonction de sa valeur presédente
+
+                // mise a jour du state en fonction de sa valeur presédente
 
                 this.setState((prevState) => ({ homebouton: !prevState.homebouton }));
               }}
@@ -278,7 +280,6 @@ class App extends React.Component {
                     animationOutDuration={1000}
                     isVisible
                   >
-
                     <FighterCard infos={this.state.infosChallenger} />
                     <ShowWeapons player="challenger" />
                   </Animated>
@@ -296,14 +297,23 @@ class App extends React.Component {
         {this.state.random.footer
         && (
         <div className="result">
-          <FighterCard infos={this.state.infosFighter} />
+          <div className="show">
+            <FighterCard infos={this.state.infosFighter} />
+            <Description
+              player="fighter"
+              getFollowers={this.getFollowersFighter}
+              getGists={this.getGistsFighter}
+              getFollowing={this.getFollowingFighter}
+              getRepository={this.getRepositoryFighter}
+            />
+          </div>
           <div className="expli">
             <div>
               <Result />
             </div>
             <button
               onClick={this.refreshPage}
-              className="restarte"
+              className="restart"
               type="button"
             >
               {' '}
@@ -311,7 +321,16 @@ class App extends React.Component {
               {' '}
             </button>
           </div>
-          <FighterCard infos={this.state.infosChallenger} />
+          <div className="show">
+            <FighterCard infos={this.state.infosChallenger} />
+            <Description
+              player="challenger"
+              getFollowers={this.getFollowersChallenger}
+              getGists={this.getGistsChallenger}
+              getFollowing={this.getFollowingChallenger}
+              getRepository={this.getRepositoryChallenger}
+            />
+          </div>
           <Footer />
         </div>
         ) }

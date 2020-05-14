@@ -34,7 +34,7 @@
 .expli{
   flex-direction: column;
 }
-.restarte{
+.restart{
   padding:  3vh;
   font-size: 3vh ;
   font-weight: bold;
@@ -47,7 +47,7 @@
   
 }
 
-.restarte::after {
+.restart::after {
   content: '';
   position: absolute;
   top: -50%;
@@ -58,7 +58,7 @@
   transform: rotateZ(60deg) translate(-5em, 7.5em);
 }
 
-.restarte:hover::after, .restarte:focus::after {
+.restart:hover::after, .restart:focus::after {
   animation: sheen 1s forwards;
 }
 
@@ -68,3 +68,6 @@
   }
 }
 
+.show{
+  flex-direction: column;
+}
