@@ -14,6 +14,7 @@ class InstructionPage extends React.Component {
     return (
       <>
         <button
+          type="button"
           className="instructionbuton"
           onClick={() => {
             if (this.state.button === false) {
