@@ -8,8 +8,8 @@ const Result = () => {
     <>
       <div className="Result">
         {state.result.fighterScore >= state.result.challengerScore
-          ? <h1>Fighter WIN</h1>
-          : <h1>Challenger WIN</h1>}
+          ? <h1>{state.infosFighter.name} WIN</h1>
+          : <h1>{state.infosChallenger.name} WIN</h1>}
         <div className="Record">
           <div className="fighterscore">
             <div>
