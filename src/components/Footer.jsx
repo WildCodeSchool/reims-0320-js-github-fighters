@@ -8,7 +8,14 @@ const Footer = () => (
     <footer>
       <div className="footer-container">
         <div className="footer-logo-container">
-          GitHub Fighters
+          <div className="footer-title">GitHub Fighters</div>
+          <ul className="footer-list">
+            <li className="footer-li">
+              <a href="https://github.com/WildCodeSchool/reims-0320-js-github-fighters/blob/master/LICENCE.md"target="_blank" rel="noopener noreferrer">
+                © 2020 GitHub Fighters - All rights reserved.
+              </a>
+            </li>
+          </ul>
         </div>
         <div className="social-container">
           <div className="footer-title">Social</div>
@@ -63,9 +70,7 @@ const Footer = () => (
           </ul>
         </div>
       </div>
-      <div className="rights-reserved">
-        © 2020 GitHub Fighters - All rights reserved.
-      </div>
+
     </footer>
   </>
 );
