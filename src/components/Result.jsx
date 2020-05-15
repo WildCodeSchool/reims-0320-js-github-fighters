@@ -12,7 +12,7 @@ const Result = () => {
           )
           : state.result.challengerScore > state.result.fighterScore
             ? (
-              <h1>{state.infosFighter.name}{' '}WIN </h1>
+              <h1>{state.infosChallenger.name}{' '}WIN </h1>
             )
             : <h1>'DRAW !!!'</h1>}
         <div className="Record">
