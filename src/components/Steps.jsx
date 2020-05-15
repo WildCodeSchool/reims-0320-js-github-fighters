@@ -16,7 +16,7 @@ const Steps = () => (
       </li>
       <li className="steps-li">
         <strong className="strong-li">Step : 3 </strong>
-        Click on the &apos;START&apos; button to start the fight, a random weapon is chosen to make it fair.
+        Click on the &apos;FIGHT !!!&apos; button to start the fight, a random weapon is chosen to make it fair.
       </li>
     </ul>
 
