@@ -36,7 +36,7 @@ class InstructionPage extends React.Component {
         >
           <section>
             <h1>Arena rules :</h1>
-            <p>Champion versus challenger, both choose a weapon, and a weapon  is given by the "Tormentor" in order to balance the fight.</p>
+            <p>Fighter versus challenger, both choose a weapon, and a weapon  is given by the "Tormentor" in order to balance the fight.</p>
             <div className="instruction-points">
               <div className="victory-points">
                 Victory = 3 points
